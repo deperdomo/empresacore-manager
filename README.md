@@ -1,5 +1,9 @@
 # Proyecto de Programación y Base de Datos
 
+<div style="background-image: url('https://raw.githubusercontent.com/ddpm24/Proyecto-Programacion-BBDD-1-DAW/main/otros/fotos/Fondo_1.png'); background-size: cover; padding: 50px 0;">
+    <h1 style="text-align: center; color: white;">Título del Proyecto</h1>
+</div>
+
 Este repositorio contiene un proyecto de Java relacionado con la gestión de una empresa en varias áreas, como clientes, recursos humanos, proyectos y facturación.
 
 ## Estructura de Paquetes
