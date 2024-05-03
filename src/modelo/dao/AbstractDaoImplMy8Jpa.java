@@ -6,6 +6,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import modelo.entidades.Cliente;
+
 public abstract class AbstractDaoImplMy8Jpa {
 	protected EntityManagerFactory emf;
 	protected EntityManager em;
@@ -18,7 +20,7 @@ public abstract class AbstractDaoImplMy8Jpa {
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 	}
-	
+
 	
 
 }
