@@ -25,6 +25,17 @@ public class Cliente implements Serializable {
 	@Column(name="facturacion_anual")
 	private BigDecimal facturacionAnual;
 
+	public Cliente(String cif, String apellidos, String domicilio, BigDecimal facturacionAnual, String nombre,
+			int numeroEmpleados) {
+		super();
+		this.cif = cif;
+		this.apellidos = apellidos;
+		this.domicilio = domicilio;
+		this.facturacionAnual = facturacionAnual;
+		this.nombre = nombre;
+		this.numeroEmpleados = numeroEmpleados;
+	}
+
 	private String nombre;
 
 	@Column(name="numero_empleados")
@@ -79,6 +90,12 @@ public class Cliente implements Serializable {
 
 	public void setNumeroEmpleados(int numeroEmpleados) {
 		this.numeroEmpleados = numeroEmpleados;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [cif=" + cif + ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", facturacionAnual="
+				+ facturacionAnual + ", nombre=" + nombre + ", numeroEmpleados=" + numeroEmpleados + "]";
 	}
 
 }
