@@ -5,15 +5,16 @@ import java.util.Scanner;
 import modelo.dao.ClienteDao;
 import modelo.dao.ClienteDaoImplMy8Jpa;
 import modelo.entidades.Cliente;
-public class GestionClientes {
-    private ClienteDao clienteDao;
 
-    public GestionClientes() {
-        clienteDao = new ClienteDaoImplMy8Jpa();
+public class GestionClientes {
+	private static Scanner leer;
+	public static void main(String[] args) {
+        GestionClientes gestionClientes = new GestionClientes();
+        gestionClientes.menu();
     }
 
     public void menu() {
-    	Scanner scanner = new Scanner(System.in);
+    	Scanner leer = new Scanner(System.in);
     		int opcion;
     	    do {
     	        System.out.println("Menú de Gestión de Clientes:");
@@ -23,11 +24,11 @@ public class GestionClientes {
     	        System.out.println("4. Eliminar un Cliente");
     	        System.out.println("5. Salir");
     	        System.out.print("Seleccione una opción: ");
-    	        opcion = scanner.nextInt();
+    	        opcion = leer.nextInt();
     	        
     	        switch (opcion) {
     	            case 1:
-    	            	
+    	            	alta();
     	                break;
     	            case 2:
     	                
@@ -47,9 +48,41 @@ public class GestionClientes {
     	        }
     	    } while (opcion != 5);
     }
-
-    public static void main(String[] args) {
-        GestionClientes gestionClientes = new GestionClientes();
-        gestionClientes.menu();
+    
+    private static ClienteDao cdao;
+    
+    static {
+    	cdao = new ClienteDaoImplMy8Jpa();
     }
+    
+    public static void alta() {
+    	
+    	Cliente cliente = new Cliente();
+    	System.out.println("Añade el cif : ");
+    	cliente.setCif(leer.next());
+    	System.out.println("Añade el nombre : ");
+    	cliente.setNombre(leer.next());
+    	System.out.println("Añade el apellido : ");
+    	cliente.setApellidos(leer.next());
+    	System.out.println("Añade el domicilio : ");
+    	cliente.setDomicilio(leer.next());
+    	System.out.println("Añade el : ");
+    	cliente.setFacturacionAnual(leer.nextBigDecimal());
+    	System.out.println("Añade el numero de empleados a cargo : ");
+    	cliente.setNumeroEmpleados(leer.nextInt());
+    	System.out.println(cdao.alta(cliente));
+    }
+    public static void buscarUno() {
+    	Cliente cliente = new Cliente();
+    	System.out.println(cdao.alta(cliente));
+    }
+    public static void buscarTodos() {
+    	Cliente cliente = new Cliente();
+    	System.out.println(cdao.alta(cliente));
+    }
+    public static void {
+    	Cliente cliente = new Cliente();
+    	System.out.println(cdao.alta(cliente));
+    }
+    
 }
