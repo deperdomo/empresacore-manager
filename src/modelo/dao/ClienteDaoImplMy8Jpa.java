@@ -8,32 +8,62 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 
 	@Override
 	public boolean alta(Cliente obj) {
-		// TODO Auto-generated method stub
+		try {
+			tx.begin();
+				em.persist(obj);
+			tx.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean eliminar(String clave) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Cliente cliente = buscarUno(clave);
+			if (cliente != null) {
+				tx.begin();
+					em.remove(cliente);
+				tx.commit();
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean modificar(Cliente obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			if (buscarUno(obj.getCif()) != null) {
+				tx.begin();
+					em.merge(obj);
+				tx.commit();
+			return true;
+			} else 
+				return false;
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public Cliente buscarUno(String clave) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Cliente.class, clave) ;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> buscarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		jpql = "Select c from Clientes c";
+		return em.createQuery(jpql).getResultList();
 	}
 
 	
