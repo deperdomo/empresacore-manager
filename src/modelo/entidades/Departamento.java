@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NamedQuery(name="Departamento.findAll", query="SELECT d FROM Departamento d")
 public class Departamento implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+//no hay jefe de departamento y no hay que ponerlo
 	@Id
 	@Column(name="id_depar")
 	private int idDepar;

@@ -29,9 +29,22 @@ public class Cliente implements Serializable {
 
 	@Column(name="numero_empleados")
 	private int numeroEmpleados;
-
+//este es el constructor
 	public Cliente() {
 	}
+
+//Constructor con todo	
+	public Cliente(String cif, String apellidos, String domicilio, BigDecimal facturacionAnual, String nombre,
+		int numeroEmpleados) {
+	super();
+	this.cif = cif;
+	this.apellidos = apellidos;
+	this.domicilio = domicilio;
+	this.facturacionAnual = facturacionAnual;
+	this.nombre = nombre;
+	this.numeroEmpleados = numeroEmpleados;
+}
+
 
 	public String getCif() {
 		return this.cif;
@@ -80,5 +93,12 @@ public class Cliente implements Serializable {
 	public void setNumeroEmpleados(int numeroEmpleados) {
 		this.numeroEmpleados = numeroEmpleados;
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente [cif=" + cif + ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", facturacionAnual="
+				+ facturacionAnual + ", nombre=" + nombre + ", numeroEmpleados=" + numeroEmpleados + "]";
+	}
+	
 
 }
