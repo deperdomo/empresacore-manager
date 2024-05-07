@@ -31,13 +31,13 @@ public class GestionClientes {
     	            	alta();
     	                break;
     	            case 2:
-    	                
+    	                buscarUno();
     	                break;
     	            case 3:
-    	                
+    	                buscarTodos();
     	                break;
     	            case 4:
-    	                
+    	                eliminar();
     	                break;
     	            case 5:
     	                System.out.println("Saliendo...");
@@ -56,7 +56,7 @@ public class GestionClientes {
     }
     
     public static void alta() {
-    	
+    	Scanner leer = new Scanner(System.in);
     	Cliente cliente = new Cliente();
     	System.out.println("Añade el cif : ");
     	cliente.setCif(leer.next());
@@ -66,23 +66,26 @@ public class GestionClientes {
     	cliente.setApellidos(leer.next());
     	System.out.println("Añade el domicilio : ");
     	cliente.setDomicilio(leer.next());
-    	System.out.println("Añade el : ");
+    	System.out.println("Añade la facturacino anual : ");
     	cliente.setFacturacionAnual(leer.nextBigDecimal());
     	System.out.println("Añade el numero de empleados a cargo : ");
     	cliente.setNumeroEmpleados(leer.nextInt());
     	System.out.println(cdao.alta(cliente));
     }
     public static void buscarUno() {
-    	Cliente cliente = new Cliente();
-    	System.out.println(cdao.alta(cliente));
+    	Scanner leer = new Scanner(System.in);
+    	System.out.println("¿Que cliente quieres buscar? Introduzca el cif : ");
+		System.out.println(cdao.buscarUno(leer.next()));
     }
     public static void buscarTodos() {
-    	Cliente cliente = new Cliente();
-    	System.out.println(cdao.alta(cliente));
+    	Scanner leer = new Scanner(System.in);
+    	System.out.println("Mostrando todos : ");
+    	cdao.buscarTodos().forEach(System.out::println);
     }
-    public static void {
-    	Cliente cliente = new Cliente();
-    	System.out.println(cdao.alta(cliente));
+    public static void eliminar(){
+    	Scanner leer = new Scanner(System.in);
+    	System.out.println("¿Que cliente quieres eliminar? Introduzca el cif : ");
+		System.out.println(cdao.eliminar(leer.next()));
     }
     
 }

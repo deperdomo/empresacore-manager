@@ -62,7 +62,7 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> buscarTodos() {
-		jpql = "Select c from Clientes c";
+		jpql = "Select c from Cliente c";
 		return em.createQuery(jpql).getResultList();
 	}
 
