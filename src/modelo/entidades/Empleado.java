@@ -58,6 +58,26 @@ public class Empleado implements Serializable {
 
 	public Empleado() {
 	}
+	
+
+	public Empleado(int idEmpl, String apellidos, String email, Date fechaIngreso, Date fechaNacimiento, String genero,
+			String nombre, String password, BigDecimal salario, Departamento departamento, Perfil perfil,
+			List<Proyecto> proyectos) {
+		super();
+		this.idEmpl = idEmpl;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fechaIngreso = fechaIngreso;
+		this.fechaNacimiento = fechaNacimiento;
+		this.genero = genero;
+		this.nombre = nombre;
+		this.password = password;
+		this.salario = salario;
+		this.departamento = departamento;
+		this.perfil = perfil;
+		this.proyectos = proyectos;
+	}
+
 
 	public int getIdEmpl() {
 		return this.idEmpl;
@@ -168,5 +188,49 @@ public class Empleado implements Serializable {
 
 		return proyecto;
 	}
+	
+	@Override
+	public String toString() {
+		return "Empleado [idEmpl=" + idEmpl + ", apellidos=" + apellidos + ", email=" + email + ", fechaIngreso="
+				+ fechaIngreso + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", nombre=" + nombre
+				+ ", password=" + password + ", salario=" + salario + ", departamento=" + departamento + ", perfil="
+				+ perfil + ", proyectos=" + proyectos + "]";
+	}
 
+	//---------------------Metodos propios----------------
+	//salario bruto
+	public BigDecimal salarioBruto() {
+		
+		return this.salario;
+		
+	}
+	//metodo para sacar el salario mensual
+	public double salarioMensual(int meses) {
+		//salario bruto entre 12 meses
+		return  salario.doubleValue() / meses;
+	}
+	//esto para saber el genero 
+	public String literalSexo() {
+		String tipo=null;
+		switch (genero) {
+		case "H" : case "h":
+			tipo="Hombre";
+			break;
+			
+		case "M": case "m":
+			tipo="Mujer";
+			break;
+		default:
+			return "Genero no identificado";
+		}
+		return tipo;
+	}
+	//metodo de correo electronico
+	public  String obtenerEmail() {
+		return this.nombre.substring(0,1) + this.apellidos;
+	}
+	//metodo del nombre completo
+	public String  nombreCompleto() {
+		return this.nombre + " " + this.apellidos;
+	}
 }
