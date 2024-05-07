@@ -169,4 +169,60 @@ public class Empleado implements Serializable {
 		return proyecto;
 	}
 
+	@Override
+	public String toString() {
+		return "Empleado [idEmpl=" + idEmpl + ", apellidos=" + apellidos + ", email=" + email + ", fechaIngreso="
+				+ fechaIngreso + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", nombre=" + nombre
+				+ ", password=" + password + ", salario=" + salario + ", departamento=" + departamento + ", perfil="
+				+ perfil + ", proyectos=" + proyectos + "]";
+	}
+
+	public Empleado(int idEmpl, String apellidos, String email, Date fechaIngreso, Date fechaNacimiento, String genero,
+			String nombre, String password, BigDecimal salario, Departamento departamento, Perfil perfil,
+			List<Proyecto> proyectos) {
+		super();
+		this.idEmpl = idEmpl;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fechaIngreso = fechaIngreso;
+		this.fechaNacimiento = fechaNacimiento;
+		this.genero = genero;
+		this.nombre = nombre;
+		this.password = password;
+		this.salario = salario;
+		this.departamento = departamento;
+		this.perfil = perfil;
+		this.proyectos = proyectos;
+	}
+	
+	// ----------------------- Métodos propios -----------------------
+	
+	public double salarioBruto() {
+		return salario.doubleValue();
+	}
+	
+	public double salarioMensual(int mes) {
+		return salario.doubleValue()/mes;
+	}
+	
+	public String literalSexo() {
+		if (genero.equalsIgnoreCase("H")) {
+			return "Hombre";
+		}else {
+			return "Mujer";
+		}
+	}
+	
+	public String obtenerEmail() {
+		int blanco = apellidos.indexOf(" ");
+		String primerApellido = apellidos.substring(0, blanco);
+		return nombre.toLowerCase().charAt(1)+primerApellido.toLowerCase()+"gmail.com";
+	}
+	
+	public String nombreCompleto() {
+		return nombre + " " + apellidos;
+	}
+	
+	
+	
 }
