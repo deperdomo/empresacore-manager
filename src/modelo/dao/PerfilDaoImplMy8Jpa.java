@@ -6,6 +6,11 @@ import modelo.entidades.Perfil;
 
 public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements PerfilDao {
 
+	public PerfilDaoImplMy8Jpa() {
+		super();
+	}
+	
+	
 	@Override
 	public boolean alta(Perfil obj) {
 		try {
