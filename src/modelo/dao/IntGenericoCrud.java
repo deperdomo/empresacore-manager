@@ -7,6 +7,7 @@ public interface IntGenericoCrud<K,T> {
 	
 	boolean alta(T obj);
 	boolean eliminar(String clave);
+	boolean eliminar(int clave);
 	boolean modificar(T obj);
 	T buscarUno(String clave);
 	List<T> buscarTodos();

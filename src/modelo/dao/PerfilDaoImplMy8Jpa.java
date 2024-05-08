@@ -81,4 +81,11 @@ public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Perfil
 		return null;
 	}
 
+
+	@Override
+	public boolean eliminar(int clave) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

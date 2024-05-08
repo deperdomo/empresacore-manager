@@ -83,6 +83,12 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 		return null;
 	}
 
+	@Override
+	public boolean eliminar(int clave) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 
 	

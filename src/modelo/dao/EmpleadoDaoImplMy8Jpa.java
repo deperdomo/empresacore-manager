@@ -1,5 +1,6 @@
 package modelo.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import modelo.entidades.Empleado;
@@ -108,7 +109,7 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 	public double salarioTotal() {
 	    String jpql = "select sum(e.salario) from Empleado e"; 
 	    query = em.createQuery(jpql);
-	    Double salarioTotal = (Double) query.getSingleResult();
+	    Double salarioTotal = ((BigDecimal)query.getSingleResult()).doubleValue();
 	    return salarioTotal;
 	}
 
@@ -119,7 +120,7 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 		jpql = "select sum(salario) as salario_total from empleados where id_depar = :dep";
 		query = em.createNativeQuery(jpql);
 		query.setParameter("dep", idDepar);
-		Double salarioTotal = (Double) query.getSingleResult();
+		Double salarioTotal = ((BigDecimal)query.getSingleResult()).doubleValue();
 		return salarioTotal;
 	}
 

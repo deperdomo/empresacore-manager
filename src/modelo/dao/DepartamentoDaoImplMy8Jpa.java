@@ -64,7 +64,7 @@ public class DepartamentoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Departamento> buscarTodos() {
-		jpql = "select c from Cliente c";
+		jpql = "select d from Departamento d";
 		query = em.createQuery(jpql);
 		return query.getResultList();
 	}
