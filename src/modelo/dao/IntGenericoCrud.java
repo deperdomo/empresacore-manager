@@ -2,6 +2,7 @@ package modelo.dao;
 
 import java.util.List;
 
+
 public interface IntGenericoCrud<K,T> {
 	
 	boolean alta(T obj);
@@ -9,5 +10,6 @@ public interface IntGenericoCrud<K,T> {
 	boolean modificar(T obj);
 	T buscarUno(String clave);
 	List<T> buscarTodos();
+	T buscarUno(int i);
 
 }

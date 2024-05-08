@@ -2,18 +2,12 @@ package modelo.dao;
 
 import java.util.List;
 
-import modelo.entidades.Cliente;
 import modelo.entidades.Perfil;
 
+public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements PerfilDao {
 
-public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements ClienteDao {
-
-	public ClienteDaoImplMy8Jpa() {
-		super();
-	}
-	
 	@Override
-	public boolean alta(Cliente obj) {
+	public boolean alta(Perfil obj) {
 		try {
 			tx.begin();
 				em.persist(obj);
@@ -30,10 +24,10 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 	@Override
 	public boolean eliminar(String clave) {
 		try {
-			Cliente cliente = buscarUno(clave);
-			if (cliente != null) {
+			Perfil perfil = buscarUno(clave);
+			if (perfil != null) {
 				tx.begin();
-					em.remove(cliente);
+					em.remove(perfil);
 				tx.commit();
 				return true;
 			}else
@@ -46,12 +40,12 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 	}
 
 	@Override
-	public boolean modificar(Cliente obj) {
+	public boolean modificar(Perfil obj) {
 		try {
-			Cliente cliente = buscarUno(obj.getCif());
-			if (cliente != null) {
+			Perfil perfil = buscarUno(obj.getIdPerfil());
+			if (perfil != null) {
 				tx.begin();
-					em.persist(cliente);
+					em.persist(perfil);
 				tx.commit();
 				return true;
 			}else
@@ -62,28 +56,24 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 			return false;
 		}
 	}
-	
-	@Override
-	public Cliente buscarUno(String clave) {
-		return em.find(Cliente.class, clave);
-	}
 
+	@Override
+	public Perfil buscarUno(int i) {
+		return em.find(Perfil.class, i);
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cliente> buscarTodos() {
-		jpql = "select c from Cliente c";
+	public List<Perfil> buscarTodos() {
+		jpql = "select c from Perfil c";
 		query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 
 	@Override
-	public Cliente buscarUno(int i) {
+	public Perfil buscarUno(String clave) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
-
-	
 }
