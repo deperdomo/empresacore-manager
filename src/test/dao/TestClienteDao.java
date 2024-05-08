@@ -19,7 +19,7 @@ public class TestClienteDao {
 		//alta();
 		//baja();
 		//buscarUno();
-		buscarTodos();
+		//buscarTodos();
 
 	}
 

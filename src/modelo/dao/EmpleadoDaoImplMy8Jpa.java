@@ -1,5 +1,6 @@
 package modelo.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -62,32 +63,45 @@ public class EmpleadoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Emp
 
 	@Override
 	public List<Empleado> empleadosByDepartamento(int idDepar) {
-		// TODO Auto-generated method stub
-		return null;
+																// en la ? le indico que lo cambie por el entero que tiene que recibir
+		jpql= "select e from Empleado e where e.departamento.idDepar=?1";
+		query= em.createNativeQuery(jpql);
+		query.setParameter("?1", idDepar);
+			return query.getResultList();
+		
 	}
 
 	@Override
 	public List<Empleado> empleadosBySexo(char sexo) {
-		// TODO Auto-generated method stub
-		return null;
+	jpql= "select e from Empleado where genero= :sexo";
+	query.setParameter("sexo", sexo);
+	query= em.createNativeQuery(jpql);
+		return query.getResultList();
 	}
 
 	@Override
 	public List<Empleado> empleadosByApellido(String subcadena) {
-		// TODO Auto-generated method stub
-		return null;
+		jpql= "select e from Empleado where apellidos= :subcadena ";
+		query= em.createNativeQuery(jpql);
+		query.setParameter("subcadena","%" + subcadena + "%");
+			return query.getResultList();
+		
 	}
 
 	@Override
 	public double salarioTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+		// suma de todos los empleados
+		jpql= "select sum(e.salario) from Empleado e";
+		query= em.createQuery(jpql);
+			return ((BigDecimal)query.getSingleResult()).doubleValue();
 	}
 
 	@Override
 	public double salarioTotal(int idDepar) {
-		// TODO Auto-generated method stub
-		return 0;
+		jpql="select sum(e.salario) form Empleado e where e.departamento.idDepar=?1";
+		query= em.createQuery(jpql);
+		query.setParameter("?1", idDepar);
+		return ((BigDecimal)query.getSingleResult()).doubleValue();
 	}
 
 }
