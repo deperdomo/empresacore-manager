@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 
 /**
@@ -40,7 +41,7 @@ public class Empleado implements Serializable {
 
 	private String password;
 
-	private BigDecimal salario;
+	private double salario;
 
 	//uni-directional many-to-one association to Departamento
 	@ManyToOne
@@ -55,6 +56,26 @@ public class Empleado implements Serializable {
 	//bi-directional many-to-one association to Proyecto
 	@OneToMany(mappedBy="empleado")
 	private List<Proyecto> proyectos;
+
+	
+	
+	public Empleado(int idEmpl, String apellidos, String email, Date fechaIngreso, Date fechaNacimiento, String genero,
+			String nombre, String password, double salario, Departamento departamento, Perfil perfil,
+			List<Proyecto> proyectos) {
+		super();
+		this.idEmpl = idEmpl;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fechaIngreso = fechaIngreso;
+		this.fechaNacimiento = fechaNacimiento;
+		this.genero = genero;
+		this.nombre = nombre;
+		this.password = password;
+		this.salario = salario;
+		this.departamento = departamento;
+		this.perfil = perfil;
+		this.proyectos = proyectos;
+	}
 
 	public Empleado() {
 	}
@@ -123,11 +144,11 @@ public class Empleado implements Serializable {
 		this.password = password;
 	}
 
-	public BigDecimal getSalario() {
+	public double getSalario() {
 		return this.salario;
 	}
 
-	public void setSalario(BigDecimal salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
@@ -167,6 +188,44 @@ public class Empleado implements Serializable {
 		proyecto.setEmpleado(null);
 
 		return proyecto;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Empleado [idEmpl=" + idEmpl + ", apellidos=" + apellidos + ", email=" + email + ", fechaIngreso="
+				+ fechaIngreso + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", nombre=" + nombre
+				+ ", password=" + password + ", salario=" + salario + ", departamento=" + departamento + ", perfil="
+				+ perfil + ", proyectos=" + proyectos + "]";
+	}
+
+	public double salarioBruto() {
+		return this.salario;
+	}
+	
+	public double salarioMensual(int meses) {
+		return this.salario / meses;
+		
+	}
+	
+	public String literalSexo () {
+		if (genero.equalsIgnoreCase("H")) {
+			return "Hombre";
+			
+		} else if (genero.equalsIgnoreCase("M")){
+			return "Mujer";
+		}else {
+			return "genero no valido";
+		}
+	}
+	
+	public String obtenerEmail() {
+		return this.nombre.substring(0,1) + this.apellidos.toLowerCase();
+	}
+	
+	public String nombreCompleto () {
+		return this.nombre + " " + this.apellidos;
 	}
 
 }
