@@ -84,8 +84,20 @@ public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Perfil
 
 	@Override
 	public boolean eliminar(int clave) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Perfil perfil = buscarUno(clave);
+			if (perfil != null) {
+				tx.begin();
+					em.remove(perfil);
+				tx.commit();
+				return true;
+			}else
+				return false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

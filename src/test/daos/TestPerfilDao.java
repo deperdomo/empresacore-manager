@@ -15,10 +15,10 @@ public class TestPerfilDao {
     }
 	
 	public static void main(String[] args) {
-		 //alta();  //OK
-	     //buscarUno();   //OK
+		 //alta();  		//OK
+	     //buscarUno();   	//OK
 	     //buscarTodos();   //OK  
-	     baja(); 
+	     //baja(); 			//OK 
 	     //modificar();
 
 	}

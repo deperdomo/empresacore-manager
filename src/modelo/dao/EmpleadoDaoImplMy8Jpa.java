@@ -85,15 +85,7 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 		return query.getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Empleado> empleadosBySexo(char sexo) {
-		//jpql= "select * from empleados where genero = :sexo";	
-		jpql= "select e from Empleado e where e.genero = :sexo";
-		query = em.createQuery(jpql);
-		query.setParameter("sexo", sexo);
-		return query.getResultList();
-	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -124,6 +116,17 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 		return salarioTotal;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Empleado> empleadosBySexo(String sexo) {
+		//jpql= "select * from empleados where genero = :sexo";	
+				jpql= "select e from Empleado e where e.genero = :sexo";
+				query = em.createQuery(jpql);
+				query.setParameter("sexo", sexo);
+				return query.getResultList();
+	}
+	
+	
 	
 	
 	
@@ -141,6 +144,9 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
+	
 
 	
 	

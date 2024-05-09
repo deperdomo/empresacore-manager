@@ -16,10 +16,10 @@ public class TestClienteDao {
 
 	public static void main(String[] args) {
 		
-		//todos();
-		//uno();
-		//alta();
-		//baja();
+		//todos(); 	//OK
+		//uno();	//OK
+		//alta();	//OK
+		//baja();	//OK
 	}
 	
 	public static void alta() {

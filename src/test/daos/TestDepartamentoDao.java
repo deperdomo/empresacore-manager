@@ -16,10 +16,10 @@ public class TestDepartamentoDao {
     }
 	public static void main(String[] args) {
 		 
-		 //alta();  //ok
-	     //buscarUno(); //ok
+		 //alta();  		//ok
+	     //buscarUno(); 	//ok
 	     //buscarTodos();   //ok
-	     //baja(); 
+	     //baja();    		//ok
 	     //modificar();
 
 
