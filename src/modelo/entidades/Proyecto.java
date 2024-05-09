@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.PrimitiveIterator.OfDouble;
 
 
 /**
@@ -173,5 +174,22 @@ public class Proyecto implements Serializable {
 				+ ", fechaFinReal=" + fechaFinReal + ", fechaInicio=" + fechaInicio + ", ventaPrevisto=" + ventaPrevisto
 				+ ", cliente=" + cliente + ", empleado=" + empleado + "]";
 	}
-
+// metodos propios
+	 // ------------------------Metodo de margen previsto
+	public double margenPrevisto() {
+		return this.ventaPrevisto.doubleValue() - this.costesPrevisto.doubleValue();
+	}
+	public double margenReal() {
+		return this.ventaPrevisto.doubleValue() - this.costeReal.doubleValue();
+	}
+	
+	public double diferenciaGastos() {
+		return this.costeReal.doubleValue() - this.costesPrevisto.doubleValue();
+	}
+	//diferenciaFinPrevistoReal(): int . Días entre fin previsto y fin real
+	public int diferenciaFinPrevistoReal() {
+		return this.fechaFinPrevisto.getDay() / this.fechaFinReal.getDay();
+	}
+	
+	
 }

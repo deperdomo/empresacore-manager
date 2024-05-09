@@ -61,28 +61,32 @@ public class EmpleadoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Emp
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empleado> empleadosByDepartamento(int idDepar) {
 																// en la ? le indico que lo cambie por el entero que tiene que recibir
 		jpql= "select e from Empleado e where e.departamento.idDepar=?1";
-		query= em.createNativeQuery(jpql);
-		query.setParameter("?1", idDepar);
+		query= em.createQuery(jpql);
+		query.setParameter(1, idDepar);
 			return query.getResultList();
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Empleado> empleadosBySexo(char sexo) {
-	jpql= "select e from Empleado where genero= :sexo";
+	public List<Empleado> empleadosBySexo(String sexo) {
+	jpql= "select e from Empleado e where e.genero= :sexo";
+	query= em.createQuery(jpql);
 	query.setParameter("sexo", sexo);
-	query= em.createNativeQuery(jpql);
+	
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empleado> empleadosByApellido(String subcadena) {
-		jpql= "select e from Empleado where apellidos= :subcadena ";
-		query= em.createNativeQuery(jpql);
+		jpql= "select e from Empleado e where e.apellidos like :subcadena";
+		query= em.createQuery(jpql);
 		query.setParameter("subcadena","%" + subcadena + "%");
 			return query.getResultList();
 		
@@ -98,9 +102,9 @@ public class EmpleadoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Emp
 
 	@Override
 	public double salarioTotal(int idDepar) {
-		jpql="select sum(e.salario) form Empleado e where e.departamento.idDepar=?1";
+		jpql="select sum(e.salario) from Empleado e where e.departamento.idDepar=?1";
 		query= em.createQuery(jpql);
-		query.setParameter("?1", idDepar);
+		query.setParameter(1, idDepar);
 		return ((BigDecimal)query.getSingleResult()).doubleValue();
 	}
 

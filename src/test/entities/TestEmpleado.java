@@ -39,6 +39,7 @@ public class TestEmpleado {
 		System.out.println("Sexo : " + emp.literalSexo());
 		System.out.println("email : " + emp.obtenerEmail());
 		System.out.println("nombre completo : " + emp.nombreCompleto());
+		
 	}
 
 	

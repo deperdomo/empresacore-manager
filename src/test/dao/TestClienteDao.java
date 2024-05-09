@@ -20,6 +20,7 @@ public class TestClienteDao {
 		//baja();
 		//buscarUno();
 		//buscarTodos();
+		
 
 	}
 
@@ -50,6 +51,7 @@ public class TestClienteDao {
 		System.out.println(adao.alta(cliente2));
 		System.out.println(adao.alta(cliente3));
 		System.out.println(adao.alta(cliente4));
+		
 		
 	}
 
