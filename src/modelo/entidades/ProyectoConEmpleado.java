@@ -103,8 +103,13 @@ public class ProyectoConEmpleado implements Serializable {
 	
 	
 	public double costeHorasAsignadas() {
+		// Horas * tasa_estandar
 		
-		return 0;
+		
+		 return horasAsignadas  * empleado.getPerfil().getTasaStandard().doubleValue();
+		
+		
+		 
 	}
 
 }

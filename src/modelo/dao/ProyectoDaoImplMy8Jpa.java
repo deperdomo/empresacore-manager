@@ -125,8 +125,10 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 
 	@Override
 	public int diasATerminoProyectoActivo(String codigoProyecto) {
-		// TODO Auto-generated method stub
-		return 0;
+		jpql = "select datediff(current_date(),fecha_fin_previsto) from proyectos where id_proyecto = :codigoP";
+		query = em.createNativeQuery(jpql);
+		query.setParameter("codigoP", codigoProyecto);
+		return ((int)query.getSingleResult());
 	}
 
 }

@@ -107,8 +107,6 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 
 	@Override
 	public double salarioTotal(int idDepar) {
-		//jpql= "select sum(salario) as salario_total from empleados where id_depar = :dep";
-		//jpql = "select sum(e.salario) from Empleado e where e.departamento.idDepar = :dep";
 		jpql = "select sum(salario) as salario_total from empleados where id_depar = :dep";
 		query = em.createNativeQuery(jpql);
 		query.setParameter("dep", idDepar);
