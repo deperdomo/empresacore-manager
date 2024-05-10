@@ -98,5 +98,13 @@ public class ProyectoConEmpleado implements Serializable {
 	}
 	
 	
+	
+	// -------------------------- Metodos Propios --------------------------
+	
+	
+	public double costeHorasAsignadas() {
+		
+		return 0;
+	}
 
 }
