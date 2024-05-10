@@ -76,6 +76,21 @@ public class ProyectoConProducto implements Serializable {
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
 	}
+
+	@Override
+	public String toString() {
+		return "ProyectoConProducto [numOrden=" + numOrden + ", cantidad=" + cantidad + ", precioAsignado="
+				+ precioAsignado + ", producto=" + producto + ", proyecto=" + proyecto + "]";
+	}
+
+	public ProyectoConProducto(int numOrden, int cantidad, int precioAsignado, Producto producto, Proyecto proyecto) {
+		super();
+		this.numOrden = numOrden;
+		this.cantidad = cantidad;
+		this.precioAsignado = precioAsignado;
+		this.producto = producto;
+		this.proyecto = proyecto;
+	}
 	
 	
 
