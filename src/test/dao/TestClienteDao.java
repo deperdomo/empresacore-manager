@@ -16,7 +16,7 @@ public class TestClienteDao {
 		adao =new ClienteDaoImplMy8Jpa(); 
 	}
 	public static void main(String[] args) {
-		//alta();
+		alta();
 		//baja();
 		//buscarUno();
 		//buscarTodos();

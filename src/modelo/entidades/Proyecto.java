@@ -188,7 +188,7 @@ public class Proyecto implements Serializable {
 	}
 	//diferenciaFinPrevistoReal(): int . Días entre fin previsto y fin real
 	public int diferenciaFinPrevistoReal() {
-		return this.fechaFinPrevisto.getDay() / this.fechaFinReal.getDay();
+		return (int) (fechaFinReal.getTime() - getFechaFinPrevisto().getTime());
 	}
 	
 	
