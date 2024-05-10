@@ -80,4 +80,23 @@ public class ProyectoConEmpleado implements Serializable {
 		this.proyecto = proyecto;
 	}
 
+	
+	@Override
+	public String toString() {
+		return "ProyectoConEmpleado [numeroOrden=" + numeroOrden + ", fechaIncorporacion=" + fechaIncorporacion
+				+ ", horasAsignadas=" + horasAsignadas + ", empleado=" + empleado + ", proyecto=" + proyecto + "]";
+	}
+
+	public ProyectoConEmpleado(int numeroOrden, Date fechaIncorporacion, int horasAsignadas, Empleado empleado,
+			Proyecto proyecto) {
+		super();
+		this.numeroOrden = numeroOrden;
+		this.fechaIncorporacion = fechaIncorporacion;
+		this.horasAsignadas = horasAsignadas;
+		this.empleado = empleado;
+		this.proyecto = proyecto;
+	}
+	
+	
+
 }
