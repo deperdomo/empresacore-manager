@@ -25,29 +25,6 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 		}
 	}
 
-	@Override
-	public boolean eliminar(String clave) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean eliminar(int clave) {
-		try {
-			ProyectoConEmpleado proyectoConEmpleado = buscarUno(clave);
-			if (proyectoConEmpleado != null) {
-				tx.begin();
-				em.remove(proyectoConEmpleado);
-				tx.commit();
-				return true;
-			}else
-				return false;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
 
 	@Override
 	public boolean modificar(ProyectoConEmpleado obj) {
@@ -67,11 +44,6 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 		}
 	}
 
-	@Override
-	public ProyectoConEmpleado buscarUno(String clave) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -81,10 +53,6 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 		return query.getResultList();
 	}
 
-	@Override
-	public ProyectoConEmpleado buscarUno(int i) {
-		return em.find(ProyectoConEmpleado.class, i);
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -134,6 +102,29 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 		double costeActual = ((BigDecimal)query.getSingleResult()).doubleValue();
 	 	return costeActual;
 		
+	}
+
+	@Override
+	public boolean eliminar(Integer clave) {
+		try {
+			ProyectoConEmpleado proyectoConEmpleado = buscarUno(clave);
+			if (proyectoConEmpleado != null) {
+				tx.begin();
+				em.remove(proyectoConEmpleado);
+				tx.commit();
+				return true;
+			}else
+				return false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public ProyectoConEmpleado buscarUno(Integer clave) {
+		return em.find(ProyectoConEmpleado.class, clave);
 	}
 
 }

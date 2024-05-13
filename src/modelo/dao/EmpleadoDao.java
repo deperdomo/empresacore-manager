@@ -11,7 +11,6 @@ public interface EmpleadoDao extends IntGenericoCrud<Integer, Empleado> {
 	List<Empleado> empleadosByApellido(String subcadena);
 	double salarioTotal(); 
 	double salarioTotal(int idDepar);
-	boolean eliminar(int clave);
 	 
 	
 }

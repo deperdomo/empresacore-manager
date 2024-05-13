@@ -87,4 +87,24 @@ public class Producto implements Serializable {
 		this.familia = familia;
 	}
 
+	@Override
+	public String toString() {
+		return "Producto [idProducto=" + idProducto + ", descripcion=" + descripcion + ", fechaCreacion="
+				+ fechaCreacion + ", precio=" + precio + ", stock=" + stock + ", familia=" + familia + "]";
+	}
+
+	public Producto(int idProducto, String descripcion, Date fechaCreacion, BigDecimal precio, int stock,
+			Familia familia) {
+		super();
+		this.idProducto = idProducto;
+		this.descripcion = descripcion;
+		this.fechaCreacion = fechaCreacion;
+		this.precio = precio;
+		this.stock = stock;
+		this.familia = familia;
+	}
+
+	
+	
+	
 }

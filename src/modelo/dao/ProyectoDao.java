@@ -4,7 +4,7 @@ import java.util.List;
 
 import modelo.entidades.Proyecto;
 
-public interface ProyectoDao extends IntGenericoCrud<Integer, Proyecto> {
+public interface ProyectoDao extends IntGenericoCrud<String, Proyecto> {
 
 	List<Proyecto> proyectosByEstado(String estado);
 	List<Proyecto> proyectosByCliente(String cif);

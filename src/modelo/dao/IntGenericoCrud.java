@@ -6,11 +6,8 @@ import java.util.List;
 public interface IntGenericoCrud<K,T> {
 	
 	boolean alta(T obj);
-	boolean eliminar(String clave);
-	boolean eliminar(int clave);
+	boolean eliminar(K clave);
 	boolean modificar(T obj);
-	T buscarUno(String clave);
+	T buscarUno(K clave);
 	List<T> buscarTodos();
-	T buscarUno(int i);
-
 }

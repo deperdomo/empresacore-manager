@@ -26,23 +26,6 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 		}
 	}
 
-	@Override
-	public boolean eliminar(int clave) {
-		try {
-			Empleado empleado = buscarUno(clave);
-			if (empleado != null) {
-				tx.begin();
-					em.remove(empleado);
-				tx.commit();
-				return true;
-			}else
-				return false;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
 
 	@Override
 	public boolean modificar(Empleado obj) {
@@ -60,11 +43,6 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 			e.printStackTrace();
 			return false;
 		}
-	}
-
-	@Override
-	public Empleado buscarUno(int i) {
-		return em.find(Empleado.class, i);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -128,21 +106,33 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 	
 	
 	
+
+	@Override
+	public boolean eliminar(Integer clave) {
+		try {
+			Empleado empleado = buscarUno(clave);
+			if (empleado != null) {
+				tx.begin();
+					em.remove(empleado);
+				tx.commit();
+				return true;
+			}else
+				return false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+
+	@Override
+	public Empleado buscarUno(Integer clave) {
+		return em.find(Empleado.class, clave);
+	}
+
+
 	
-
-	@Override
-	public Empleado buscarUno(String clave) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public boolean eliminar(String clave) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 
 	
 

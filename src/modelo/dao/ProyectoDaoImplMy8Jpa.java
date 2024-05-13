@@ -22,28 +22,7 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 		}
 	}
 
-	@Override
-	public boolean eliminar(String clave) {
-		return false;
-	}
 
-	@Override
-	public boolean eliminar(int clave) {
-		try {
-			Proyecto proyecto = buscarUno(clave);
-			if (proyecto != null) {
-				tx.begin();
-					em.remove(proyecto);
-				tx.commit();
-				return true;
-			}else
-				return false;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
 
 	@Override
 	public boolean modificar(Proyecto obj) {
@@ -67,6 +46,24 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 	public Proyecto buscarUno(String clave) {
 		return em.find(Proyecto.class, clave);
 	}
+	
+	@Override
+	public boolean eliminar(String clave) {
+		try {
+			Proyecto proyecto = buscarUno(clave);
+			if (proyecto != null) {
+				tx.begin();
+					em.remove(proyecto);
+				tx.commit();
+				return true;
+			}else
+				return false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -76,10 +73,7 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 		return query.getResultList();
 	}
 
-	@Override
-	public Proyecto buscarUno(int i) {
-		return em.find(Proyecto.class, i);
-	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -130,5 +124,9 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 		query.setParameter("codigoP", codigoProyecto);
 		return ((int)query.getSingleResult());
 	}
+
+
+
+
 
 }

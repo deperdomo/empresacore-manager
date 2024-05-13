@@ -77,17 +77,8 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 		return query.getResultList();
 	}
 
-	@Override
-	public Cliente buscarUno(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
-	public boolean eliminar(int clave) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	
 

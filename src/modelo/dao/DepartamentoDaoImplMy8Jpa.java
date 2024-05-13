@@ -3,6 +3,7 @@ package modelo.dao;
 import java.util.List;
 
 import modelo.entidades.Departamento;
+import modelo.entidades.Perfil;
 
 public class DepartamentoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements DepartamentoDao {
 
@@ -24,23 +25,7 @@ public class DepartamentoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements 
 		}
 	}
 
-	@Override
-	public boolean eliminar(int clave) {
-		try {
-			Departamento departamento = buscarUno(clave);
-			if (departamento != null) {
-				tx.begin();
-					em.remove(departamento);
-				tx.commit();
-				return true;
-			}else
-				return false;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+	
 
 	@Override
 	public boolean modificar(Departamento obj) {
@@ -69,21 +54,30 @@ public class DepartamentoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements 
 		return query.getResultList();
 	}
 
+
+
+
 	@Override
-	public Departamento buscarUno(int i) {
-		return em.find(Departamento.class, i);
+	public boolean eliminar(Integer clave) {
+		try {
+			Departamento departamento = buscarUno(clave);
+			if (departamento != null) {
+				tx.begin();
+					em.remove(departamento);
+				tx.commit();
+				return true;
+			}else
+				return false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public boolean eliminar(String clave) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	@Override
-	public Departamento buscarUno(String clave) {
-		// TODO Auto-generated method stub
-		return null;
+	public Departamento buscarUno(Integer clave) {
+		return em.find(Departamento.class, clave);
 	}
 
 }

@@ -26,23 +26,7 @@ public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Perfil
 		}
 	}
 
-	@Override
-	public boolean eliminar(String clave) {
-		try {
-			Perfil perfil = buscarUno(clave);
-			if (perfil != null) {
-				tx.begin();
-					em.remove(perfil);
-				tx.commit();
-				return true;
-			}else
-				return false;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+
 
 	@Override
 	public boolean modificar(Perfil obj) {
@@ -62,10 +46,6 @@ public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Perfil
 		}
 	}
 
-	@Override
-	public Perfil buscarUno(int i) {
-		return em.find(Perfil.class, i);
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -75,15 +55,11 @@ public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Perfil
 		return query.getResultList();
 	}
 
-	@Override
-	public Perfil buscarUno(String clave) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 
 	@Override
-	public boolean eliminar(int clave) {
+	public boolean eliminar(Integer clave) {
 		try {
 			Perfil perfil = buscarUno(clave);
 			if (perfil != null) {
@@ -98,6 +74,12 @@ public class PerfilDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Perfil
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+
+	@Override
+	public Perfil buscarUno(Integer clave) {
+		return em.find(Perfil.class, clave);
 	}
 
 }

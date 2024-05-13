@@ -4,6 +4,5 @@ import modelo.entidades.Departamento;
 
 public interface DepartamentoDao extends IntGenericoCrud<Integer, Departamento> {
 
-	boolean eliminar(int clave);
 
 }
