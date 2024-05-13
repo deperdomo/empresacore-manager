@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -228,4 +229,30 @@ public class Empleado implements Serializable {
 		return this.nombre + " " + this.apellidos;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellidos, departamento, email, fechaIngreso, fechaNacimiento, genero, idEmpl, nombre,
+				password, perfil, proyectos, salario);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		return Objects.equals(apellidos, other.apellidos) && Objects.equals(departamento, other.departamento)
+				&& Objects.equals(email, other.email) && Objects.equals(fechaIngreso, other.fechaIngreso)
+				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(genero, other.genero)
+				&& idEmpl == other.idEmpl && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(password, other.password) && Objects.equals(perfil, other.perfil)
+				&& Objects.equals(proyectos, other.proyectos)
+				&& Double.doubleToLongBits(salario) == Double.doubleToLongBits(other.salario);
+	}
+
+	
+	
 }

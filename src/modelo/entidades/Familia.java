@@ -1,6 +1,8 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.*;
 
 
@@ -40,4 +42,34 @@ public class Familia implements Serializable {
 		this.descripcion = descripcion;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(descripcion, idFamilia);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Familia other = (Familia) obj;
+		return Objects.equals(descripcion, other.descripcion) && idFamilia == other.idFamilia;
+	}
+
+	@Override
+	public String toString() {
+		return "Familia [idFamilia=" + idFamilia + ", descripcion=" + descripcion + "]";
+	}
+
+	public Familia(int idFamilia, String descripcion) {
+		super();
+		this.idFamilia = idFamilia;
+		this.descripcion = descripcion;
+	}
+
+	
+	
 }

@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 
 /**
@@ -104,4 +105,30 @@ public class Cliente implements Serializable {
 		this.numeroEmpleados = numeroEmpleados;
 	}
 
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellidos, cif, domicilio, facturacionAnual, nombre, numeroEmpleados);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(apellidos, other.apellidos) && Objects.equals(cif, other.cif)
+				&& Objects.equals(domicilio, other.domicilio)
+				&& Objects.equals(facturacionAnual, other.facturacionAnual) && Objects.equals(nombre, other.nombre)
+				&& numeroEmpleados == other.numeroEmpleados;
+	}
+
+	
+	
 }

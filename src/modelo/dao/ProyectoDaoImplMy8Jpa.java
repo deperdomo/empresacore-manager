@@ -2,8 +2,6 @@ package modelo.dao;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import modelo.entidades.Empleado;
 import modelo.entidades.Proyecto;
 
 public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements ProyectoDao {

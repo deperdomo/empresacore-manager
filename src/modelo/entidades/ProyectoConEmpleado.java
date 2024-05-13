@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -80,4 +81,46 @@ public class ProyectoConEmpleado implements Serializable {
 		this.proyecto = proyecto;
 	}
 
+	public ProyectoConEmpleado(int numeroOrden, Date fechaIncorporacion, int horasAsignadas, Empleado empleado,
+			Proyecto proyecto) {
+		super();
+		this.numeroOrden = numeroOrden;
+		this.fechaIncorporacion = fechaIncorporacion;
+		this.horasAsignadas = horasAsignadas;
+		this.empleado = empleado;
+		this.proyecto = proyecto;
+	}
+
+	@Override
+	public String toString() {
+		return "ProyectoConEmpleado [numeroOrden=" + numeroOrden + ", fechaIncorporacion=" + fechaIncorporacion
+				+ ", horasAsignadas=" + horasAsignadas + ", empleado=" + empleado + ", proyecto=" + proyecto + "]";
+	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(empleado, fechaIncorporacion, horasAsignadas, numeroOrden, proyecto);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProyectoConEmpleado other = (ProyectoConEmpleado) obj;
+		return Objects.equals(empleado, other.empleado) && Objects.equals(fechaIncorporacion, other.fechaIncorporacion)
+				&& horasAsignadas == other.horasAsignadas && numeroOrden == other.numeroOrden
+				&& Objects.equals(proyecto, other.proyecto);
+	}
+
+	public double costeHorasAsignadas() {
+		return horasAsignadas * empleado.getPerfil().getTasaStandard().doubleValue();
+
+	}
+	
 }

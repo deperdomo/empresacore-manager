@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -191,5 +192,34 @@ public class Proyecto implements Serializable {
 	public int diferenciaFinPrevistoReal() {
 		return (int) (fechaFinReal.getTime() - fechaFinPrevisto.getTime());
 	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cliente, costeReal, costesPrevisto, descripcion, empleado, estado, fechaFinPrevisto,
+				fechaFinReal, fechaInicio, idProyecto, ventaPrevisto);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Proyecto other = (Proyecto) obj;
+		return Objects.equals(cliente, other.cliente) && Objects.equals(costeReal, other.costeReal)
+				&& Objects.equals(costesPrevisto, other.costesPrevisto)
+				&& Objects.equals(descripcion, other.descripcion) && Objects.equals(empleado, other.empleado)
+				&& Objects.equals(estado, other.estado) && Objects.equals(fechaFinPrevisto, other.fechaFinPrevisto)
+				&& Objects.equals(fechaFinReal, other.fechaFinReal) && Objects.equals(fechaInicio, other.fechaInicio)
+				&& Objects.equals(idProyecto, other.idProyecto) && Objects.equals(ventaPrevisto, other.ventaPrevisto);
+	}
+	
+	
 	
 }
