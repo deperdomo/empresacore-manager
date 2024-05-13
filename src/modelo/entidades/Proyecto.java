@@ -174,6 +174,9 @@ public class Proyecto implements Serializable {
 				+ ", fechaFinReal=" + fechaFinReal + ", fechaInicio=" + fechaInicio + ", ventaPrevisto=" + ventaPrevisto
 				+ ", cliente=" + cliente + ", empleado=" + empleado + "]";
 	}
+	
+	
+	
 // metodos propios
 	 // ------------------------Metodo de margen previsto
 	public double margenPrevisto() {
@@ -188,7 +191,7 @@ public class Proyecto implements Serializable {
 	}
 	//diferenciaFinPrevistoReal(): int . Días entre fin previsto y fin real
 	public int diferenciaFinPrevistoReal() {
-		return this.fechaFinPrevisto.getDay() / this.fechaFinReal.getDay();
+		return (int) (fechaFinReal.getTime() - getFechaFinPrevisto().getTime());
 	}
 	
 	

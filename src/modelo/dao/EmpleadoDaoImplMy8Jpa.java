@@ -24,24 +24,7 @@ public class EmpleadoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Emp
 		}
 	}
 
-	@Override
-	public Empleado eliminar(String clave) {
-		try {
-			Empleado empleado =buscarUno(clave);
-			if (empleado != null) {
-				tx.begin();
-				em.remove(empleado);
-				tx.commit();
-				return empleado;
-			}else {
-				return null;
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+	
 
 	@Override
 	public boolean modificar(Empleado obj) {
@@ -49,11 +32,9 @@ public class EmpleadoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Emp
 		return false;
 	}
 
-	@Override
-	public Empleado buscarUno(String clave) {
-		return em.find(Empleado.class, clave);
-	}
+	
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empleado> buscarTodos() {
 		jpql= "select e from Empleado e";
@@ -106,6 +87,30 @@ public class EmpleadoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Emp
 		query= em.createQuery(jpql);
 		query.setParameter(1, idDepar);
 		return ((BigDecimal)query.getSingleResult()).doubleValue();
+	}
+
+	@Override
+	public Empleado eliminar(Integer clave) {
+		try {
+			Empleado empleado =buscarUno(clave);
+			if (empleado != null) {
+				tx.begin();
+				em.remove(empleado);
+				tx.commit();
+				return empleado;
+			}else {
+				return null;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public Empleado buscarUno(Integer clave) {
+		return em.find(Empleado.class, clave);
 	}
 
 }
