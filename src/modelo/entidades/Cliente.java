@@ -33,6 +33,29 @@ public class Cliente implements Serializable {
 	public Cliente() {
 	}
 
+	
+	
+	@Override
+	public String toString() {
+		return "Cliente [cif=" + cif + ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", facturacionAnual="
+				+ facturacionAnual + ", nombre=" + nombre + ", numeroEmpleados=" + numeroEmpleados + "]";
+	}
+
+
+
+	public Cliente(String cif, String apellidos, String domicilio, BigDecimal facturacionAnual, String nombre,
+			int numeroEmpleados) {
+		super();
+		this.cif = cif;
+		this.apellidos = apellidos;
+		this.domicilio = domicilio;
+		this.facturacionAnual = facturacionAnual;
+		this.nombre = nombre;
+		this.numeroEmpleados = numeroEmpleados;
+	}
+
+
+
 	public String getCif() {
 		return this.cif;
 	}

@@ -181,15 +181,15 @@ public class Proyecto implements Serializable {
 	}
 	
 	public double margenReal() {
-		return 0;
+		 return this.ventaPrevisto.doubleValue() - this.costeReal.doubleValue();
 	}
 	
 	public double diferenciasGastos() {
-		return 0;
+		return this.costeReal.doubleValue() - this.costesPrevisto.doubleValue();
 	}
 	
 	public int diferenciaFinPrevistoReal() {
-		return 0;
+		return (int) (fechaFinReal.getTime() - fechaFinPrevisto.getTime());
 	}
 	
 }
