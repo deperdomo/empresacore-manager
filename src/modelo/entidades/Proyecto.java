@@ -179,13 +179,13 @@ public class Proyecto implements Serializable {
 	//Métodos propios de Proyecto:
 	
 	 public double margenPrevisto() {
-		 return this.ventaPrevisto.doubleValue() - this.costesPrevisto.doubleValue();
+		 return ventaPrevisto.doubleValue() - costesPrevisto.doubleValue();
 	 }
 	 public double margenReal() {
-		 return this.ventaPrevisto.doubleValue() - this.costeReal.doubleValue(); 
+		 return ventaPrevisto.doubleValue() - costeReal.doubleValue(); 
 	 }
 	 public double diferenciaGastos() {
-		 return this.costeReal.doubleValue() - this.costesPrevisto.doubleValue(); 
+		 return costeReal.doubleValue() - costesPrevisto.doubleValue(); 
 	 }
 	 public int diferenciaFinPrevistoReal() {
 		 return (int) (fechaFinReal.getTime() - fechaFinPrevisto.getTime());
