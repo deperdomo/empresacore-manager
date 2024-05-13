@@ -1,5 +1,12 @@
 package test.entities;
 
+<<<<<<< HEAD
+=======
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+>>>>>>> 5bf88abeac293047ddb4c20e358bd5707a89db72
 
 
 import java.math.BigDecimal;
@@ -13,6 +20,7 @@ import modelo.dao.EmpleadoDaoImplMy8Jpa;
 import modelo.entidades.Proyecto;
 
 public class TestProyecto {
+<<<<<<< HEAD
 	private static ClienteDao cdao;
 	private static EmpleadoDao edao;
 	static {
@@ -33,6 +41,24 @@ public class TestProyecto {
 		pro.setEstado("TERMINADO");
 		pro.setCliente(cdao.buscarUno("A22222222"));
 		pro.setEmpleado(edao.buscarUno(114));
+=======
+
+	public static void main(String[] args) throws ParseException {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Proyecto pro = new Proyecto();
+		pro.setIdProyecto("FOR2021000");
+		pro.setDescripcion("Formacion de empleados");
+		pro.setFechaInicio(sdf.parse("2010-6-24"));
+		pro.setFechaFinPrevisto(sdf.parse("2010-12-23"));
+		pro.setFechaFinReal(sdf.parse("2011-1-15"));
+		pro.setVentaPrevisto(BigDecimal.valueOf(400000));
+		pro.setCostesPrevisto(BigDecimal.valueOf(250000));
+		pro.setEstado("ACTIVO");
+		pro.setCliente(null);
+		pro.setEmpleado(null);
+>>>>>>> 5bf88abeac293047ddb4c20e358bd5707a89db72
 		
 		
 		System.out.println("Margen previsto : " + pro.margenPrevisto());
