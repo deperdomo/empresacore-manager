@@ -6,13 +6,15 @@ import java.util.List;
 import modelo.entidades.Cliente;
 import modelo.entidades.ProyectoConEmpleado;
 
+
+
 public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements ProyectoConEmpleadoDao{
 
 	@Override
 	public boolean alta(ProyectoConEmpleado obj) {
 		try {
 			tx.begin();
-				em.persist(obj);
+			em.persist(obj);
 			tx.commit();
 			return true;
 		}catch(Exception e) {
@@ -35,7 +37,7 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 			ProyectoConEmpleado proyectoConEmpleado = buscarUno(clave);
 			if (proyectoConEmpleado != null) {
 				tx.begin();
-					em.remove(proyectoConEmpleado);
+				em.remove(proyectoConEmpleado);
 				tx.commit();
 				return true;
 			}else
@@ -53,7 +55,7 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 			ProyectoConEmpleado proyectoConEmpleado = buscarUno(obj.getNumeroOrden());
 			if (proyectoConEmpleado != null) {
 				tx.begin();
-					em.persist(proyectoConEmpleado);
+				em.persist(proyectoConEmpleado);
 				tx.commit();
 				return true;
 			}else
@@ -94,9 +96,16 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 	}
 
 	@Override
-	public int asignarEmpleadosAProyecto(List<ProyectoConEmpleadoDao> empleados) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados) {
+		
+		int contador = 0;
+		tx.begin();
+		for (ProyectoConEmpleado proyectoConEmpleado : empleados) {
+			contador++;
+			em.persist(proyectoConEmpleado);		
+		}
+		tx.commit();
+		return contador;
 	}
 
 	@Override
@@ -110,14 +119,21 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 
 	@Override
 	public double costeActualDeProyecto(String codigoProyecto) {
-		// TODO Auto-generated method stub
-		return 0;
+		jpql = "select sum(ep.horas_asignadas * ep.empleado.perfil.tasa_standard) from proyectoConEmpleado ep where ep.proyecto.idProyecto = :codigo";
+		query = em.createNativeQuery(jpql);
+		query.setParameter("codigo", codigoProyecto);
+		double costeActual = ((BigDecimal)query.getSingleResult()).doubleValue();
+	 	return costeActual;
 	}
-
+ 
 	@Override
 	public double margenActualProyecto(String codigoProyecto) {
-		// TODO Auto-generated method stub
-		return 0;
+		jpql = "select venta_previsto - coste_real from proyectos where id_proyecto = :codigo";
+		query = em.createNativeQuery(jpql);
+		query.setParameter("codigo", codigoProyecto);
+		double costeActual = ((BigDecimal)query.getSingleResult()).doubleValue();
+	 	return costeActual;
+		
 	}
 
 }
