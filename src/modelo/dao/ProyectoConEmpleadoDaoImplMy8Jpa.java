@@ -78,14 +78,18 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 
 	@Override
 	public int horasAsignadasAProyecto(String codigoProyecto) {
-		// TODO Auto-generated method stub
-		return 0;
+		jpql = "SELECT SUM(p.horas) FROM ProyectoConEmpleado p WHERE p.proyecto.codigo = :codigo";
+	    query = em.createQuery(jpql);
+	    query.setParameter("codigo", codigoProyecto);
+	    return ((int)query.getSingleResult());
 	}
 
 	@Override
 	public double costeActualDeProyecto(String codigoProyecto) {
-		// TODO Auto-generated method stub
-		return 0;
+		jpql = "SELECT SUM(p.costeHorasAsignadas) FROM ProyectoConEmpleado p WHERE p.proyecto.codigo = :codigo";
+	    query = em.createQuery(jpql);
+	    query.setParameter("codigo", codigoProyecto);
+	    return ((int)query.getSingleResult());
 	}
 
 	@Override
