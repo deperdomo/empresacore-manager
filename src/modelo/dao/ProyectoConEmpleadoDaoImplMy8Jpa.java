@@ -4,12 +4,26 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import modelo.entidades.Cliente;
+import modelo.entidades.Proyecto;
 import modelo.entidades.ProyectoConEmpleado;
 
 
 
 public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements ProyectoConEmpleadoDao{
 
+	private  ProyectoDao pdao;
+	private  ProyectoConEmpleadoDao pedao;
+	
+	
+	public ProyectoConEmpleadoDaoImplMy8Jpa() {
+		pdao = new ProyectoDaoImplMy8Jpa();
+		pedao = new ProyectoConEmpleadoDaoImplMy8Jpa();
+	}	
+	
+	
+  
+	
+	
 	@Override
 	public boolean alta(ProyectoConEmpleado obj) {
 		try {
@@ -96,11 +110,14 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
  
 	@Override
 	public double margenActualProyecto(String codigoProyecto) {
-		jpql = "select venta_previsto - coste_real from proyectos where id_proyecto = :codigo";
-		query = em.createNativeQuery(jpql);
-		query.setParameter("codigo", codigoProyecto);
-		double costeActual = ((BigDecimal)query.getSingleResult()).doubleValue();
-	 	return costeActual;
+		
+		Proyecto proyecto = pdao.buscarUno(codigoProyecto);
+		double VentaPrevisto = proyecto.getVentaPrevisto().doubleValue();
+		
+		double costeActual = pedao.costeActualDeProyecto(codigoProyecto);
+		
+		double margenActual = VentaPrevisto - costeActual;
+	 	return margenActual;
 		
 	}
 
