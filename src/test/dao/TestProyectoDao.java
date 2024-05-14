@@ -10,16 +10,16 @@ static {
 	pdao= new ProyectoDaoImplMy8Jpa();
 }
 	public static void main(String[] args) {
-		estado();
-		//proyectoCliente();
-		//proyectoJefeProyectoEstado();
-		//ventaProyectoTerminado();
-		//margenBruto();
-		//diaTerminadoProyecto();
+		//estado(); funciona
+		//proyectoCliente(); funciona
+		//proyectoJefeProyectoEstado();    
+		//ventaProyectoTerminado(); funciona
+		//margenBruto(); funciona
+		//diaTerminadoProyecto(); funciona
 
 	}
 		public static void diaTerminadoProyecto() {
-			
+			System.out.println(pdao.diasATerminoProyectoActivo("FOR2021002"));
 	}
 		public static void margenBruto() {
 		System.out.println(pdao.margenBrutoProyectosTerminados());
@@ -30,11 +30,11 @@ static {
 		
 	}
 		public static void proyectoJefeProyectoEstado() {
-		// TODO Auto-generated method stub
+		System.out.println(pdao.proyectosByJefeProyectoAndByEstado(114, "TERMINADO"));
 		
 	}
 		public static void proyectoCliente() {
-		// TODO Auto-generated method stub
+		System.out.println(pdao.proyectosByCliente("B33333333"));
 		
 	}
 		public static void estado() {

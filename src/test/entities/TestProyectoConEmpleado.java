@@ -3,30 +3,19 @@ package test.entities;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import modelo.dao.ClienteDao;
-import modelo.dao.ClienteDaoImplMy8Jpa;
-import modelo.dao.EmpleadoDao;
-import modelo.dao.EmpleadoDaoImplMy8Jpa;
 import modelo.entidades.Cliente;
 import modelo.entidades.Departamento;
 import modelo.entidades.Empleado;
 import modelo.entidades.Perfil;
 import modelo.entidades.Proyecto;
+import modelo.entidades.ProyectoConEmpleado;
 
-public class TestProyecto {
-
-	private static ClienteDao cdao;
-	private static EmpleadoDao edao;
-	static {
-		cdao =new ClienteDaoImplMy8Jpa();
-		edao =new EmpleadoDaoImplMy8Jpa();
-	}
-
-
+public class TestProyectoConEmpleado {
 
 	public static void main(String[] args) throws ParseException {
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		 Departamento dep =new Departamento();
 		 	dep.setIdDepar(20);
@@ -69,15 +58,22 @@ public class TestProyecto {
 		pro.setCostesPrevisto(BigDecimal.valueOf(250000));
 		pro.setEstado("ACTIVO");
 		pro.setCliente(cliente);
-		pro.setEmpleado(null);
+		pro.setEmpleado(empleado);
 
 		
+		ProyectoConEmpleado proyectoEmpleado = new ProyectoConEmpleado();
+		proyectoEmpleado.setNumeroOrden(5);
+		proyectoEmpleado.setFechaIncorporacion(sdf.parse("2019-04-20"));
+		proyectoEmpleado.setHorasAsignadas(650);
+		proyectoEmpleado.setEmpleado(empleado);
+		proyectoEmpleado.setProyecto(pro);
 		
-		System.out.println("Margen previsto : " + pro.margenPrevisto());
-		System.out.println("Margen Real : " + pro.margenReal());
-		System.out.println("Diferencias Gastos  : " + pro.diferenciaGastos());
-		System.out.println(" diferencia Fin previsto y fin real  : " + pro.diferenciaFinPrevistoReal() );
-
+		
+		
+		
+		
+			
+		System.out.println(proyectoEmpleado.costeHorasAsignadas());
 	}
 
 }

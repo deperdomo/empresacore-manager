@@ -40,6 +40,20 @@ public class ProyectoConEmpleado implements Serializable {
 	public ProyectoConEmpleado() {
 	}
 
+	
+	
+	public ProyectoConEmpleado(int numeroOrden, Date fechaIncorporacion, int horasAsignadas, Empleado empleado,
+			Proyecto proyecto) {
+		super();
+		this.numeroOrden = numeroOrden;
+		this.fechaIncorporacion = fechaIncorporacion;
+		this.horasAsignadas = horasAsignadas;
+		this.empleado = empleado;
+		this.proyecto = proyecto;
+	}
+
+
+
 	public int getNumeroOrden() {
 		return this.numeroOrden;
 	}
@@ -79,5 +93,19 @@ public class ProyectoConEmpleado implements Serializable {
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "ProyectoConEmpleado [numeroOrden=" + numeroOrden + ", fechaIncorporacion=" + fechaIncorporacion
+				+ ", horasAsignadas=" + horasAsignadas + ", empleado=" + empleado + ", proyecto=" + proyecto + "]";
+	}
+
+		// ------ metodo  coste horas asignaturas------------------
+		// Horas * precio/hora
+		public double costeHorasAsignadas() {
+			//multiplica las horas  multiplicado por tasa Standard del empleado
+			return horasAsignadas * empleado.getPerfil().getTasaStandard().doubleValue() / horasAsignadas;
+		}
 
 }

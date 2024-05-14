@@ -58,7 +58,7 @@ public class ProyectoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Pro
 	 // proyecto de jefe de empleado  y su estado. Recibe el jefe de proyecto y estado
 	@Override
 	public List<Proyecto> proyectosByJefeProyectoAndByEstado(int jefeProyecto, String estado) {
-		jpql="select p from Proyecto p where p.empleado.idEmpleado=?1 and p.estado= :estado ";
+		jpql="select p from Proyecto p where p.empleado.idEmpl=?1 and p.estado= :estado ";
 		query= em.createQuery(jpql);
 		query.setParameter("estado", estado);
 		query.setParameter(1, jefeProyecto );
@@ -82,9 +82,9 @@ public class ProyectoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Pro
 	//me mandan un  cif  y quiero saber la diferencia de fecha fin previsto  y el dia actual
 	@Override
 	public int diasATerminoProyectoActivo(String codigoProyecto) {
-		jpql="select datediff(current_date(), p.fechaFinPrevisto) from Proyecto p where p.cliente.cif= :cliente";
+		jpql="select datediff(current_date(), p.fechaFinPrevisto) from Proyecto p where p.idProyecto= :idProyecto";
 		query= em.createQuery(jpql);
-		query.setParameter("cliente", codigoProyecto);
+		query.setParameter("idProyecto", codigoProyecto);
 							//para un solo resultado  es SingleResult
 		return (int) query.getSingleResult();
 	}
