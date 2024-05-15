@@ -3,6 +3,7 @@ package modelo.dao;
 import java.util.List;
 
 import modelo.entidades.Producto;
+import modelo.entidades.ProyectoConEmpleado;
 
 public class ProductoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements ProductoDao {
 
@@ -22,8 +23,20 @@ public class ProductoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Prod
 
 	@Override
 	public boolean eliminar(Integer clave) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Producto producto = buscarUno(clave);
+			if (producto != null) {
+				tx.begin();
+				em.remove(producto);
+				tx.commit();
+				return true;
+			}else
+				return false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
