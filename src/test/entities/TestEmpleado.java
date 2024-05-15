@@ -45,10 +45,10 @@ public class TestEmpleado {
                 "Juan", "123456", new BigDecimal(60000), departamento, perfil, proyectos);
 
         // Prueba de los métodos de la clase Empleado
-        System.out.println("Salario bruto: " + empleado.salarioBruto());
-        System.out.println("Salario mensual: " + empleado.salarioMensual(12));
-        System.out.println("Literal sexo: " + empleado.literalSexo());
-        System.out.println("Email generado: " + empleado.obtenerEmail());
-        System.out.println("Nombre completo: " + empleado.nombreCompleto());
+        System.out.println("Salario bruto: " + empleado.salarioBruto());			// OK
+        System.out.println("Salario mensual: " + empleado.salarioMensual(12));		// OK
+        System.out.println("Literal sexo: " + empleado.literalSexo());				// OK
+        System.out.println("Email generado: " + empleado.obtenerEmail());			// OK
+        System.out.println("Nombre completo: " + empleado.nombreCompleto());		// OK
     }
 }
