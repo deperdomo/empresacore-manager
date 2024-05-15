@@ -2,10 +2,8 @@ package test.daos;
 
 import java.math.BigDecimal;
 
-import modelo.dao.PerfilDao;
 import modelo.dao.ProductoDaoImplMy8Jpa;
 import modelo.entidades.Familia;
-import modelo.entidades.Perfil;
 import modelo.entidades.Producto;
 
 public class TestProducto {
@@ -19,10 +17,9 @@ private static ProductoDaoImplMy8Jpa pdao;
 
 	public static void main(String[] args) {
 		 //alta();  			// OK
-	     //buscarUno();   	// OK
-	     //buscarTodos();   // OK
-	     baja(); 			
-	     //modificar();
+	     //buscarUno();   		// OK
+	     //buscarTodos();   	// OK
+	     //baja(); 				// OK
 
 	}
 	
@@ -44,10 +41,7 @@ private static ProductoDaoImplMy8Jpa pdao;
        System.out.println("Baja: " + pdao.eliminar(7));
    }
    
-   public static void modificar() {
-      // Empleado empleado = ddao.buscarUno(100);
-      // System.out.println("Modificar: " + ddao.modificar(empleado));
-   }
+   
 	
 
 	
