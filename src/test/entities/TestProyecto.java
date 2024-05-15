@@ -51,7 +51,7 @@ public class TestProyecto {
         // Crear un objeto Proyecto
         Proyecto proyecto = new Proyecto("FOR2021001", new BigDecimal("315000"), new BigDecimal("30000"),
                 "Formacion de habilidades directivas", "TERMINADO", new Date(), new Date(),
-                new Date(), new BigDecimal("50000"), cliente, empleado)
+                new Date(), new BigDecimal("50000"), cliente, empleado);
 
         		
 
