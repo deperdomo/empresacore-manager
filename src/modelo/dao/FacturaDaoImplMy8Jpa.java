@@ -2,18 +2,13 @@ package modelo.dao;
 
 import java.util.List;
 
-import modelo.entidades.Cliente;
-import modelo.entidades.Perfil;
 
+import modelo.entidades.Factura;
 
-public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements ClienteDao {
+public class FacturaDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements FacturaDao {
 
-	public ClienteDaoImplMy8Jpa() {
-		super();
-	}
-	
 	@Override
-	public boolean alta(Cliente obj) {
+	public boolean alta(Factura obj) {
 		try {
 			tx.begin();
 				em.persist(obj);
@@ -23,17 +18,16 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 		    e.printStackTrace();
 			System.out.println(e.getMessage());
 			return false;
-			
 		}
 	}
 
 	@Override
 	public boolean eliminar(String clave) {
 		try {
-			Cliente cliente = buscarUno(clave);
-			if (cliente != null) {
+			Factura factura = buscarUno(clave);
+			if (factura != null) {
 				tx.begin();
-					em.remove(cliente);
+					em.remove(factura);
 				tx.commit();
 				return true;
 			}else
@@ -46,12 +40,12 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 	}
 
 	@Override
-	public boolean modificar(Cliente obj) {
+	public boolean modificar(Factura obj) {
 		try {
-			Cliente cliente = buscarUno(obj.getCif());
-			if (cliente != null) {
+			Factura factura = buscarUno(obj.getIdFactura());
+			if (factura != null) {
 				tx.begin();
-					em.persist(cliente);
+					em.persist(factura);
 				tx.commit();
 				return true;
 			}else
@@ -62,25 +56,20 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Clien
 			return false;
 		}
 	}
-	
-	@Override
-	public Cliente buscarUno(String clave) {
-		return em.find(Cliente.class, clave);
-	}
 
+	@Override
+	public Factura buscarUno(String clave) {
+		return em.find(Factura.class, clave);
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Cliente> buscarTodos() {
-		jpql = "select c from Cliente c";
+	public List<Factura> buscarTodos() {
+		jpql = "select f from Factura f";
 		query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 
 	
 
-
-	
-
-	
 }

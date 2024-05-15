@@ -2,35 +2,41 @@ package test.daos;
 
 import java.math.BigDecimal;
 
+import modelo.dao.DepartamentoDao;
+import modelo.dao.DepartamentoDaoImplMy8Jpa;
 import modelo.dao.EmpleadoDao;
 import modelo.dao.EmpleadoDaoImplMy8Jpa;
+import modelo.dao.PerfilDao;
+import modelo.dao.PerfilDaoImplMy8Jpa;
 import modelo.entidades.Empleado;
 
 public class TestEmpleadoDao {
 	
 	  private static EmpleadoDao edao;
+	  private static PerfilDao pdao;
+	  private static DepartamentoDao ddao;
 	    
 	    static {
 	        edao = new EmpleadoDaoImplMy8Jpa();
+	        pdao = new PerfilDaoImplMy8Jpa();
+	        ddao = new DepartamentoDaoImplMy8Jpa();
 	    }
 	public static void main(String[] args) {
 		
 		 //alta();
-	     //buscarUno();  // OK
-	     buscarTodos();  // OK
-	     //baja();  // OK
-	     //modificar();
-	     //empleadosByDepartamento();
-	     //empleadosBySexo();
-	     //empleadosByApellido(); // OK
-	     salarioTotal();
-	     //salarioTotalByDepartment();
+	     //buscarUno();  				// OK
+	     //buscarTodos();  				// OK
+	     //baja();  					// OK
+	     //empleadosByDepartamento();	// OK
+	     //EmpleadosBySexo();			// OK
+	     //empleadosByApellido(); 		// OK
+	     //salarioTotal();  			// OK
+	     //salarioTotalByDepartment(); 	// OK
+		 //modificar();
 
-	}
-
+	 }
 	public static void alta() {
-        //Empleado empleado = new Empleado("12345678A", "García", "Madrid", 2500.0, 'M', 1);
-		Empleado empleado = new Empleado(1234, "Palomares", "palomares@gmail.com", null, null, "M", "Damián", "1234", new BigDecimal("20000"), null, null, null);
+		Empleado empleado = new Empleado(0, "Palomares", "palomares@gmail.com", null, null, "M", "Damián", "1234", new BigDecimal("20000"), ddao.buscarUno(10), pdao.buscarUno(1), null);
         System.out.println("Alta: " + edao.alta(empleado));
     }
     
@@ -57,9 +63,9 @@ public class TestEmpleadoDao {
         edao.empleadosByDepartamento(10).forEach(System.out::println);
     }
     
-    public static void empleadosBySexo() {
+    public static void EmpleadosBySexo() {
         System.out.println("Empleados por Sexo:");
-        edao.empleadosBySexo('M').forEach(System.out::println);
+        edao.empleadosBySexo("M").forEach(System.out::println);
     }
     
     public static void empleadosByApellido() {

@@ -52,4 +52,18 @@ public class Perfil implements Serializable {
 		this.tasaStandard = tasaStandard;
 	}
 
+	@Override
+	public String toString() {
+		return "Perfil [idPerfil=" + idPerfil + ", nombre=" + nombre + ", tasaStandard=" + tasaStandard + "]";
+	}
+
+	public Perfil(int idPerfil, String nombre, BigDecimal tasaStandard) {
+		super();
+		this.idPerfil = idPerfil;
+		this.nombre = nombre;
+		this.tasaStandard = tasaStandard;
+	}
+	
+	
+
 }
