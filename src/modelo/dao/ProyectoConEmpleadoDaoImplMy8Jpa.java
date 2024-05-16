@@ -12,12 +12,13 @@ import modelo.entidades.ProyectoConEmpleado;
 public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements ProyectoConEmpleadoDao{
 
 	private  ProyectoDao pdao;
-	private  ProyectoConEmpleadoDao pedao;
+
 	
 	
 	public ProyectoConEmpleadoDaoImplMy8Jpa() {
+		super();
 		pdao = new ProyectoDaoImplMy8Jpa();
-		pedao = new ProyectoConEmpleadoDaoImplMy8Jpa();
+		
 	}	
 	
 	
@@ -114,7 +115,7 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 		Proyecto proyecto = pdao.buscarUno(codigoProyecto);
 		double VentaPrevisto = proyecto.getVentaPrevisto().doubleValue();
 		
-		double costeActual = pedao.costeActualDeProyecto(codigoProyecto);
+		double costeActual = costeActualDeProyecto(codigoProyecto);
 		
 		double margenActual = VentaPrevisto - costeActual;
 	 	return margenActual;

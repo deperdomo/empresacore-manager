@@ -16,7 +16,7 @@ public class TestClienteDao {
 
 	public static void main(String[] args) {
 		
-		//todos(); 	//OK
+		todos(); 	//OK
 		//uno();	//OK
 		//alta();	//OK
 		//baja();	//OK
