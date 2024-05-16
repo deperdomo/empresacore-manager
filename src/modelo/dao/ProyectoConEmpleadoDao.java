@@ -6,7 +6,7 @@ import modelo.entidades.ProyectoConEmpleado;
 
 public interface ProyectoConEmpleadoDao  extends IntGenericoCrud<Integer, ProyectoConEmpleado>{
 
-	List<ProyectoConEmpleadoDao> empleadosByProyecto(String codigoProyecto);
+	List<ProyectoConEmpleado> empleadosByProyecto(String codigoProyecto);
 	int asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados); 
 	int horasAsignadasAProyecto(String codigoProyecto); 
 	double costeActualDeProyecto(String codigoProyecto);  

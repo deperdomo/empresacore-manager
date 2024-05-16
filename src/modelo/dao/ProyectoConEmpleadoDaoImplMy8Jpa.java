@@ -71,9 +71,9 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<ProyectoConEmpleadoDao> empleadosByProyecto(String codigoProyecto) {
-		jpql = "select *  from proyecto_con_empleados where id_proyecto = :codigo";
-		query = em.createNativeQuery(jpql);
+	public List<ProyectoConEmpleado> empleadosByProyecto(String codigoProyecto) {
+		jpql = "select p from ProyectoConEmpleado p where p.proyecto.idProyecto = :codigo";
+		query = em.createQuery(jpql);
 		query.setParameter("codigo", codigoProyecto);
 		return query.getResultList();
 	}
@@ -81,32 +81,29 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 	@Override
 	public int asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados) {
 		
-		int contador = 0;
 		tx.begin();
 		for (ProyectoConEmpleado proyectoConEmpleado : empleados) {
-			contador++;
 			em.persist(proyectoConEmpleado);		
 		}
 		tx.commit();
-		return contador;
+		return empleados.size();
 	}
 
 	@Override
 	public int horasAsignadasAProyecto(String codigoProyecto) {
-		jpql = "select sum(horas_asignadas) from proyecto_con_empleados where id_proyecto = :codigo";
-		query = em.createNativeQuery(jpql);
+		jpql = "select sum(p.horasAsignadas) from ProyectoConEmpleado p where p.proyecto.idProyecto = :codigo";
+		query = em.createQuery(jpql);
 		query.setParameter("codigo", codigoProyecto);
-		int horasAsignadas = ((BigDecimal)query.getSingleResult()).intValue();
+		int horasAsignadas = ((int)(long)query.getSingleResult());
 	 	return horasAsignadas;
 	}
 
 	@Override
 	public double costeActualDeProyecto(String codigoProyecto) {
-		jpql = "select sum(ep.horas_asignadas * ep.empleado.perfil.tasa_standard) from proyectoConEmpleado ep where ep.proyecto.idProyecto = :codigo";
-		query = em.createNativeQuery(jpql);
+		jpql = "select sum(ep.horasAsignadas * ep.empleado.perfil.tasaStandard) from ProyectoConEmpleado ep where ep.proyecto.idProyecto = :codigo";
+		query = em.createQuery(jpql);
 		query.setParameter("codigo", codigoProyecto);
-		double costeActual = ((BigDecimal)query.getSingleResult()).doubleValue();
-	 	return costeActual;
+		return ((BigDecimal)query.getSingleResult()).doubleValue();
 	}
  
 	@Override
@@ -117,8 +114,7 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 		
 		double costeActual = costeActualDeProyecto(codigoProyecto);
 		
-		double margenActual = VentaPrevisto - costeActual;
-	 	return margenActual;
+		return VentaPrevisto - costeActual;
 		
 	}
 

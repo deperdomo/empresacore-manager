@@ -33,15 +33,14 @@ public class TestProyectoConEmpleado {
 		
 		 //alta();  									// OK
 	     //buscarUno();   								// OK
-	     buscarTodos();   							// OK
+	     //buscarTodos();   							// OK
 	     //baja(); 										// OK
-		 //tProyectosByEstado();
-		 //tProyectosByCliente();
-		 //tProyectosByJefeProyectoAndByEstado();
-		 //tImportesVentaProyectosTerminados();
-		 //tMargenBrutoProyectosTerminados();
-		 //tDiasATerminoProyectoActivo();
-
+		 //tEmpleadosByProyecto();						// OK
+		 //tAsignarEmpleadosAProyecto();
+		 //tHorasAsignadasAProyecto();  				// OK
+		 //tCosteActualDeProyecto();  					// OK
+		 //tMargenActualProyecto();						// OK
+		
 	}
 	
 	
@@ -60,7 +59,7 @@ public class TestProyectoConEmpleado {
    }
    
    public static void baja() {
-       System.out.println("Baja: " + pedao.eliminar(5));
+       System.out.println("Baja: " + pedao.eliminar(6));
    }
    
    
@@ -70,21 +69,22 @@ public class TestProyectoConEmpleado {
 	   pedao.empleadosByProyecto("FOR2020001").forEach(System.out::println);
    }
    public static void tAsignarEmpleadosAProyecto() {
-	   List<ProyectoConEmpleado> empleados = new ArrayList<>();
-	   empleados.add(pedao.buscarUno(1));
-	   empleados.add(pedao.buscarUno(2));
-	   empleados.add(pedao.buscarUno(3));
+	   
+	   List<ProyectoConEmpleado> listEmpleados = new ArrayList<>();
+	   //listEmpleados.add(listEmpleados);
+	   
 	   System.out.println("Asignar empleados a proyecto: ");
-	   pedao.asignarEmpleadosAProyecto(empleados);
+	   System.out.println(pedao.asignarEmpleadosAProyecto(listEmpleados));
+	   
    }
    public static void tHorasAsignadasAProyecto() {
-	   pedao.horasAsignadasAProyecto("FOR2020001");
+	   System.out.println(pedao.horasAsignadasAProyecto("FOR2020001"));
    }
    public static void tCosteActualDeProyecto() {
-	   pedao.costeActualDeProyecto("FOR2020001");
+	   System.out.println(pedao.costeActualDeProyecto("FOR2020001"));
    }
    public static void tMargenActualProyecto() {
-	   pedao.margenActualProyecto("FOR2020001");
+	   System.out.println(pedao.margenActualProyecto("FOR2020001"));
    }
     
 	
