@@ -10,9 +10,9 @@ static {
 	pdao= new ProyectoDaoImplMy8Jpa();
 }
 	public static void main(String[] args) {
-		//estado(); funciona
-		//proyectoCliente(); funciona
-		//proyectoJefeProyectoEstado();    
+		//estado(); //funciona
+		//proyectoCliente();// funciona
+		//proyectoJefeProyectoEstado(); //parece que funciona   
 		//ventaProyectoTerminado(); funciona
 		//margenBruto(); funciona
 		//diaTerminadoProyecto(); funciona
@@ -34,7 +34,7 @@ static {
 		
 	}
 		public static void proyectoCliente() {
-		System.out.println(pdao.proyectosByCliente("B33333333"));
+		System.out.println(pdao.proyectosByCliente("A22222222"));
 		
 	}
 		public static void estado() {

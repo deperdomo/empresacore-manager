@@ -39,6 +39,10 @@ public class Perfil implements Serializable {
 
 
 
+	
+
+
+
 	public int getIdPerfil() {
 		return this.idPerfil;
 	}

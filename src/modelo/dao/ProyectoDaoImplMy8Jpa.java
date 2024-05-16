@@ -89,8 +89,13 @@ public class ProyectoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Pro
 		return (int) query.getSingleResult();
 	}
 
+	
+
+	
+
+
 	@Override
-	public Proyecto eliminar(Integer clave) {
+	public Proyecto eliminar(String clave) {
 		try {
 			Proyecto proyecto =buscarUno(clave);
 			if (proyecto != null) {
@@ -108,8 +113,10 @@ public class ProyectoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Pro
 		}
 	}
 
+
+
 	@Override
-	public Proyecto buscarUno(Integer clave) {
+	public Proyecto buscarUno(String clave) {
 		return em.find(Proyecto.class, clave);
 	}
 

@@ -105,7 +105,7 @@ public class ProyectoConEmpleado implements Serializable {
 		// Horas * precio/hora
 		public double costeHorasAsignadas() {
 			//multiplica las horas  multiplicado por tasa Standard del empleado
-			return horasAsignadas * empleado.getPerfil().getTasaStandard().doubleValue() / horasAsignadas;
+			return horasAsignadas * empleado.getPerfil().getTasaStandard().doubleValue();
 		}
 
 }
