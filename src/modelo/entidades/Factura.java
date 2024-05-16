@@ -65,4 +65,21 @@ public class Factura implements Serializable {
 		this.proyecto = proyecto;
 	}
 
+	@Override
+	public String toString() {
+		return "Factura [idFactura=" + idFactura + ", descripcion=" + descripcion + ", fechaFactura=" + fechaFactura
+				+ ", proyecto=" + proyecto + "]";
+	}
+
+	public Factura(String idFactura, String descripcion, Date fechaFactura, Proyecto proyecto) {
+		super();
+		this.idFactura = idFactura;
+		this.descripcion = descripcion;
+		this.fechaFactura = fechaFactura;
+		this.proyecto = proyecto;
+	}
+	
+	
+	
+
 }

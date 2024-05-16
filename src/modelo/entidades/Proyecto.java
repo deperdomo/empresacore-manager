@@ -188,8 +188,16 @@ public class Proyecto implements Serializable {
 		 return costeReal.doubleValue() - costesPrevisto.doubleValue(); 
 	 }
 	 public int diferenciaFinPrevistoReal() {
-		 return (int) (fechaFinReal.getTime() - fechaFinPrevisto.getTime());
-	 }
+		    // Si alguna de las fechas es nula, retorna 0
+		    if (fechaFinReal == null || fechaFinPrevisto == null) {
+		        return 0;
+		    }
+		    long diferenciaMilisegundos = fechaFinReal.getTime() - fechaFinPrevisto.getTime();
+		    
+		    long dias = diferenciaMilisegundos / (24 * 60 * 60 * 1000);
+		    
+		    return (int) dias;
+		}
 	 
 	 
 	 

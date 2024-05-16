@@ -33,8 +33,8 @@ public class TestEmpleadoDao {
 	     //salarioTotal();  			// OK
 	     //salarioTotalByDepartment(); 	// OK
 		 //modificar();
-	}
 
+	 }
 	public static void alta() {
 		Empleado empleado = new Empleado(0, "Palomares", "palomares@gmail.com", null, null, "M", "Damián", "1234", new BigDecimal("20000"), ddao.buscarUno(10), pdao.buscarUno(1), null);
         System.out.println("Alta: " + edao.alta(empleado));

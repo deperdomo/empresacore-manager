@@ -214,9 +214,14 @@ public class Empleado implements Serializable {
 	}
 	
 	public String obtenerEmail() {
-		int blanco = apellidos.indexOf(" ");
-		String primerApellido = apellidos.substring(0, blanco);
-		return nombre.toLowerCase().charAt(1)+primerApellido.toLowerCase()+"gmail.com";
+	    int blanco = apellidos.indexOf(" ");
+	    String primerApellido;
+	    if (blanco != -1) {
+	        primerApellido = apellidos.substring(0, blanco);
+	    } else {
+	        primerApellido = apellidos;
+	    }
+	    return nombre.toLowerCase().charAt(0) + primerApellido.toLowerCase() + "@gmail.com";
 	}
 	
 	public String nombreCompleto() {
