@@ -199,7 +199,9 @@ public class Proyecto implements Serializable {
 		    return (int) dias;
 		}
 	 
-	 
+	 public double totalFacturado() {
+		return costesPrevisto.doubleValue() - costeReal.doubleValue();
+	 }
 	 
 
 }
