@@ -56,7 +56,6 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Empl
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empleado> empleadosByDepartamento(int idDepar) {
-		//jpql= "select * from empleados where id_depar = :dep";
 		jpql = "select e from Empleado e where e.departamento.idDepar = :dep";
 		query = em.createQuery(jpql);
 		query.setParameter("dep", idDepar);
