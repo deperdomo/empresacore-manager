@@ -76,7 +76,7 @@ public class ProyectoConProductoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<ProyectoConProducto> productosByProyecto(String codigoProyecto) {
-		jpql = "select p from ProyectoConProducto p where p.proyecto.idProyecto =  :codPro";
+		jpql = "select p.cantidad, p.precioAsignado,(p.precioAsignado*p.cantidad) from ProyectoConProducto p where p.proyecto.idProyecto =  :codPro";
 		query = em.createQuery(jpql);
 		query.setParameter("codPro", codigoProyecto);
 		return query.getResultList();

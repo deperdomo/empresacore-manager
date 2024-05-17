@@ -200,7 +200,7 @@ public class Proyecto implements Serializable {
 		}
 	 
 	 public double totalFacturado() {
-		return costesPrevisto.doubleValue() - costeReal.doubleValue();
+		return costeReal.doubleValue();
 	 }
 	 
 

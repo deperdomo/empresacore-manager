@@ -1,7 +1,9 @@
 package principales;
 
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+
+import org.hibernate.mapping.List;
 
 import modelo.dao.ClienteDao;
 import modelo.dao.ClienteDaoImplMy8Jpa;
@@ -9,11 +11,15 @@ import modelo.dao.FacturaDao;
 import modelo.dao.FacturaDaoImplMy8Jpa;
 import modelo.dao.ProyectoConEmpleadoDao;
 import modelo.dao.ProyectoConEmpleadoDaoImplMy8Jpa;
+import modelo.dao.ProyectoConProductoDao;
+import modelo.dao.ProyectoConProductoDaoImplMy8Jpa;
 import modelo.dao.ProyectoDao;
 import modelo.dao.ProyectoDaoImplMy8Jpa;
 import modelo.entidades.Cliente;
+import modelo.entidades.Empleado;
 import modelo.entidades.Factura;
 import modelo.entidades.Proyecto;
+import modelo.entidades.ProyectoConEmpleado;
 
 public class ImprimirFactura {
 	
@@ -21,15 +27,21 @@ public class ImprimirFactura {
 	private static ClienteDao cdao;
 	private static ProyectoDao pdao;
 	private static ProyectoConEmpleadoDao pcedao;
+	private static ProyectoConProductoDao pcpdao;
     
     static {
         fdao = new FacturaDaoImplMy8Jpa();
         cdao = new ClienteDaoImplMy8Jpa();
         pdao = new ProyectoDaoImplMy8Jpa();
         pcedao = new ProyectoConEmpleadoDaoImplMy8Jpa();
+        pcpdao = new ProyectoConProductoDaoImplMy8Jpa();
     }
 
 	public static void main(String[] args) {
+		
+
+		
+		
 		
 		
 		String id_factura = "F2020001";
@@ -72,14 +84,21 @@ public class ImprimirFactura {
 		System.out.println("");
 		
 		System.out.println("LISTA EMPLEADOS");
-		pcedao.empleadosByProyecto(id_proyecto).forEach(System.out::println);
+		
+		for (ProyectoConEmpleado l : pcedao.empleadosByProyecto(id_proyecto)) {
+			System.out.print("Apellido, nombre"+l.getEmpleado().getApellidos()+", "+l.getEmpleado().getNombre());
+			System.out.print("    Horas: "+l.getHorasAsignadas());
+			System.out.print("    Importe repercutido:  "+(l.getHorasAsignadas() * (int)l.getEmpleado().getPerfil().getTasaStandard()));
+		}
+		
 		System.out.println("");
 		System.out.println("Total Horas: "+pcedao.horasAsignadasAProyecto(id_proyecto)+ "    Toal Precio: " + pcedao.costeActualDeProyecto(id_proyecto));
 		
 		System.out.println("");
 		
-		
+		System.out.println("LISTA PRODUCTOS");
 		// hacer un metdo en proyectoConProductoDao que me traiga todos los productos asignados a un proyecto
+		System.out.println(pcpdao.productosByProyecto(id_proyecto));
 		
 		
 		System.out.println("");
