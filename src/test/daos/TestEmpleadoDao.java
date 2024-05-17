@@ -27,7 +27,7 @@ public class TestEmpleadoDao {
 	     //buscarUno();  				// OK
 	     //buscarTodos();  				// OK
 	     //baja();  					// OK
-	     empleadosByDepartamento();	// OK
+	     //empleadosByDepartamento();	// OK
 	     //EmpleadosBySexo();			// OK
 	     //empleadosByApellido(); 		// OK
 	     //salarioTotal();  			// OK
