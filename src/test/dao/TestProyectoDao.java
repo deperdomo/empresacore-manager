@@ -13,8 +13,8 @@ static {
 		//estado(); //funciona
 		//proyectoCliente();// funciona
 		//proyectoJefeProyectoEstado(); //parece que funciona   
-		//ventaProyectoTerminado(); funciona
-		//margenBruto(); funciona
+		//ventaProyectoTerminado();// funciona
+		//margenBruto();// funciona
 		//diaTerminadoProyecto(); funciona
 
 	}

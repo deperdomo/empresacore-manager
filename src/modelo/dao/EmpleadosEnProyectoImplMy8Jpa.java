@@ -24,7 +24,7 @@ public class EmpleadosEnProyectoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implem
 	}
 
 	@Override
-	public ProyectoConEmpleado eliminar(String clave) {
+	public ProyectoConEmpleado eliminar(Integer clave) {
 		try {
 			ProyectoConEmpleado proyectoConEmpleado =buscarUno(clave);
 			if (proyectoConEmpleado != null) {
@@ -49,7 +49,7 @@ public class EmpleadosEnProyectoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implem
 	}
 
 	@Override
-	public ProyectoConEmpleado buscarUno(String clave) {
+	public ProyectoConEmpleado buscarUno(Integer clave) {
 		return em.find(ProyectoConEmpleado.class, clave);
 	}
 
@@ -62,7 +62,7 @@ public class EmpleadosEnProyectoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implem
 
 	@Override
 	public List<ProyectoConEmpleado> empleadosByProyecto(String codigoProyecto) {
-		jpql="select e.nombre from Empleado e join ProyectoConEmpleado pce on pce.idEmpl=e.idEmpl where pce.idEmpl= :codigo";
+		jpql="select e from ProyectoConEmpleado e where e.proyecto.idProyecto = :codigo";
 		query= em.createQuery(jpql);
 		query.setParameter("codigo", codigoProyecto);
 		return query.getResultList();

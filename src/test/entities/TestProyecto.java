@@ -67,9 +67,10 @@ public class TestProyecto {
 		pro.setFechaFinReal(sdf.parse("2011-1-15"));
 		pro.setVentaPrevisto(BigDecimal.valueOf(400000));
 		pro.setCostesPrevisto(BigDecimal.valueOf(250000));
+		pro.setCosteReal(BigDecimal.valueOf(200000));
 		pro.setEstado("ACTIVO");
-		pro.setCliente(cliente);
-		pro.setEmpleado(null);
+		pro.setCliente(cdao.buscarUno("A22222222"));
+		pro.setEmpleado(edao.buscarUno(114));
 
 		
 		

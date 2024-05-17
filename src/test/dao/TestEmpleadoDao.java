@@ -10,11 +10,11 @@ public class TestEmpleadoDao {
 		edao= new EmpleadoDaoImplMy8Jpa();
 	}
 	public static void main(String[] args) {
-		//empleadoDepartamneto();
-		//empleadoSexo();
-		 // salariototal();
-		//totalDepartamento();
-		empleadosApellidos();
+		//empleadoDepartamneto();//Funciona
+		//empleadoSexo();//Funciona
+		  //salariototal();// funciona
+		//totalDepartamento();//Funciona
+		//empleadosApellidos();//Funciona
 	}
 	public static void salariototal() {
 		System.out.println(edao.salarioTotal());
