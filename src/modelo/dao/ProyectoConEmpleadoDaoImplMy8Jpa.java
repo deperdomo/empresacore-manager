@@ -70,39 +70,41 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa impl
 		return em.createQuery(jpql).getResultList();
 	}
 
-	@Override
-	public int asignarEmpleadosAProyecto(List<ProyectoConEmpleadoDao> empleados) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public int horasAsignadasAProyecto(String codigoProyecto) {
-		jpql = "SELECT SUM(p.horas) FROM ProyectoConEmpleado p WHERE p.proyecto.codigo = :codigo";
+		jpql = "SELECT SUM(p.horas) FROM ProyectoConEmpleado p WHERE p.proyecto.codigo = :idPro";
 	    query = em.createQuery(jpql);
-	    query.setParameter("codigo", codigoProyecto);
+	    query.setParameter("idPro", codigoProyecto);
 	    return ((int)query.getSingleResult());
 	}
 
 	@Override
 	public double costeActualDeProyecto(String codigoProyecto) {
-		jpql = "SELECT SUM(p.costeHorasAsignadas) FROM ProyectoConEmpleado p WHERE p.proyecto.codigo = :codigo";
+		jpql = "SELECT SUM(p.costeHorasAsignadas) FROM ProyectoConEmpleado p WHERE p.proyecto.codigo = :idPro";
 	    query = em.createQuery(jpql);
-	    query.setParameter("codigo", codigoProyecto);
+	    query.setParameter("idPro", codigoProyecto);
 	    return ((int)query.getSingleResult());
 	}
 
 	@Override
 	public double margenActualProyecto(String codigoProyecto) {
+		return 0;
+	}
+
+	@Override
+	public int asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public List<ProyectoConEmpleadoDao> empleadosByProyecto(String codigoProyecto) {
+	public List<ProyectoConEmpleado> empleadosByProyecto(String codigoProyecto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 	
 
