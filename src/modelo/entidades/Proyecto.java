@@ -193,7 +193,9 @@ public class Proyecto implements Serializable {
 		return (int) (fechaFinReal.getTime() - fechaFinPrevisto.getTime());
 	}
 
-
+	public double totalFacturado() {
+		return costeReal.doubleValue();
+	 }
 
 	@Override
 	public int hashCode() {

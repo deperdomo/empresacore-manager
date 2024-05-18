@@ -107,6 +107,4 @@ public class EmpleadoDaoImplMy8Jpa extends  AbstractDaoImplMy8Jpa implements Emp
 		query.setParameter("subcadena","%" + subcadena + "%");
 		return em.createNativeQuery(jpql).getResultList();
 	}
-
-	
 	}
