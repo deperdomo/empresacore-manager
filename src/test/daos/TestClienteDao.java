@@ -31,7 +31,7 @@ public class TestClienteDao {
 		System.out.println("BUCAR UNO");
 		System.out.println(cdao.buscarUno("11111111D"));
 		
-		
+
 	}
 	public static void todos() {
 		System.out.println("BUCAR TODOS");
@@ -42,6 +42,5 @@ public class TestClienteDao {
 		System.out.println("Baja");
 		System.out.println(cdao.eliminar("11111111D"));
 	}
-	
 
 }
