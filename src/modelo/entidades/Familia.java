@@ -40,4 +40,18 @@ public class Familia implements Serializable {
 		this.descripcion = descripcion;
 	}
 
+	@Override
+	public String toString() {
+		return "Familia [idFamilia=" + idFamilia + ", descripcion=" + descripcion + "]";
+	}
+
+	public Familia(int idFamilia, String descripcion) {
+		super();
+		this.idFamilia = idFamilia;
+		this.descripcion = descripcion;
+	}
+	
+	
+	
+
 }
