@@ -1,8 +1,5 @@
 # 🏢 EmpresaCore Manager
 
-![Suwer.ai Logo](images/suwer-logo.png)
-*Sistema de Gestión Empresarial Integral desarrollado con tecnologías modernas*
-
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
 [![Maven](https://img.shields.io/badge/Maven-3.8+-blue.svg)](https://maven.apache.org/)
 [![Hibernate](https://img.shields.io/badge/Hibernate-5.4.11-green.svg)](https://hibernate.org/)
@@ -21,7 +18,6 @@
 - [🧪 Testing](#-testing)
 - [📈 Diagramas](#-diagramas)
 - [🤝 Contribución](#-contribución)
-- [👥 Autores](#-autores)
 
 ## 🎯 Descripción del Proyecto
 
@@ -357,11 +353,11 @@ Para consultas o sugerencias sobre el proyecto, no dudes en contactarnos:
 ### 🔗 Enlaces de Interés
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://tu-portfolio.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/tu-perfil)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tu-usuario)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/deiviperdomo/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deperdomo)
 
-**📅 Última actualización:** Junio 2025  
-**🎓 Proyecto Académico:** 2º DAW - Entorno Servidor  
+**📅 Última actualización:** Junio 2024
+**🎓 Proyecto Académico:** 2º DAW - Entorno Servidor
 **🏫 Centro:** IFP - Instituto de Formación Profesional
 
 </div>
