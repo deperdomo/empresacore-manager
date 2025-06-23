@@ -318,17 +318,7 @@ erDiagram
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
-
-## 📞 Contacto
-
-Para consultas o sugerencias sobre el proyecto, no dudes en contactarnos:
-
-- 📧 Email: contacto@empresacore-manager.com
-- 🐛 Issues: [GitHub Issues](https://github.com/tu-usuario/empresacore-manager/issues)
-- 📚 Wiki: [Documentación Completa](https://github.com/tu-usuario/empresacore-manager/wiki)
-
-
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles
 
 ### 🏆 Contribuciones
 
